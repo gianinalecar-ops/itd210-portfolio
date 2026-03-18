@@ -1,0 +1,937 @@
+:root{
+
+/* Color palette */
+--primary-blue:#03306a;
+--primary-red:#8B1E1E;
+--light-gray:#f5f5f5;
+--text-dark:#2B2B2B;
+--white:#ffffff;
+
+/* Typography scale using clamp()
+Clamp allows text to grow between a minimum and maximum size depending on
+screen width. This improves readability across mobile, tablet, and desktop.
+*/
+
+--fs-small:clamp(0.9rem,1vw,1rem);
+--fs-body:clamp(1rem,1.5vw,1.2rem);
+--fs-subheading:clamp(1.4rem,3vw,2rem);
+--fs-heading:clamp(2rem,5vw,3.5rem);
+
+/* Spacing scale */
+--space-sm:1rem;
+--space-md:2rem;
+--space-lg:4rem;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* -- Body -- */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: #2B2B2B;
+}
+
+h1 {
+    font-size: var(--fs-heading);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    font-size: var(--fs-subheading);
+    color: #03306a;
+}
+
+/* -- NAVIGATION LAYOUT
+Flexbox is used to align the logo and navigation links horizontally. 
+This allows it to adapt to different screen sizes.
+-- */
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #03306a;
+    line-height: 1.6rem;
+}
+
+/* -- NAVIGATION -- */
+.desktop-nav {
+    display: none;
+}
+
+.desktop-nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: #8B1E1E;
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: var(--primary-red);
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    background: #03306a;
+    padding: 6rem 2rem 2rem;
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+.mobile-nav.open {
+    right: 0;
+    box-shadow: 2px 5px 10px 7px rgba(9, 9, 13, 0.7);
+}
+
+.mobile-nav ul {
+    list-style: none;
+}
+
+.mobile-nav li {
+    margin-bottom: 1.5rem;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f1f1f1;
+    text-shadow: 1px 2px 1px black;
+}
+
+.mobile-nav a:hover {
+    color: #d62d2d;
+}
+
+.close-menu {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.close-menu:hover {
+    opacity: 0.7;
+}
+
+a:hover {
+    color: #03306a;
+;
+}
+
+/* -- Hero -- */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-darken {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.hero-overlay h1 {
+    color: #f1f1f1;
+    font-size: 3rem;
+    font-weight: 800;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtext {
+    margin-top: 1rem;
+    max-width: 700px;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(241, 241, 241, 0.9);
+}
+
+.hero-actions {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.85rem 3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.07em;
+}
+
+.btn.primary {
+  background-color: #8B1E1E;
+  color: #ffffff;
+}
+
+.btn.primary:hover {
+  background-color: #d62d2d;
+  transform: translateY(-2px);
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: #f1f1f1;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.btn.secondary:hover {
+  background-color: rgba(24, 24, 162, 0.3);
+  transform: translateY(-2px);
+}
+
+/* -- Cards --*/
+#highlights {
+    padding: 10rem 3rem;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns:1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card {
+    padding: 3rem 3rem;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.card h3 i {
+    font-size: 2.2rem;
+    margin-right: 0.6rem;
+    vertical-align: middle;
+}
+.card h3 {
+    margin: 0.8rem 0 0.5rem;
+}
+
+.card p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #2b2b2b;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.faith-bridge p {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 3rem;
+}
+/*-- Stats -- */
+.stats-section {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.impact-quote {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+}
+.stats-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align:center;
+    align-items: center;
+    padding-bottom: 6rem;
+    margin-bottom: 4rem;
+}
+
+.stats-row.reversed {
+    direction: ltr;
+}
+
+.stat-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.stats-text {
+    font-size: xx-large;
+    font-weight: 800;
+    color: #8B1E1E;
+}
+
+.stats-text h3 i {
+    font-size: 6rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.stats-text span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #2b2b2b;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+/* AI Assistance Citation
+Tool: ChatGPT
+Date: January 28, 2026
+Where used: Stats section styling (Z-pattern layout and image placeholders)
+What AI did: Suggested CSS Grid layout and row reversal technique to create a Z-pattern design.
+What I did: Implemented the styles, adjusted spacing and sizing, and tested responsiveness across screen sizes.
+Prompt summary: Asked how to space and reverse my text and images to create a z pattern based on my homepage mockup.
+*/
+
+.btn.explore{
+  background-color: #8B1E1E;
+  color: #ffffff;
+  margin-top: 1rem;
+}
+
+.btn.explore:hover {
+  background-color: #d62d2d;
+  transform: translateY(-2px);
+}
+
+.stats-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#highlights,
+.stats-section {
+  scroll-margin-top: 120px;
+}
+/* -- Scroll Images -- */
+.scroll-container{
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 16px;
+  background-color: #03306a;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* AI Assistance Citation
+Tool: ChatGPT
+Date: February 3, 2026
+Where used: Scroll image gallery
+What AI did: Provided CSS to control desktop image sizing while maintaining a 4:3 aspect ratio, prevent cropping or distortion using object-fit: contain, and ensure responsive scaling on mobile devices through viewport-based sizing and media queries.
+What I did: Implemented the recommended styles, adjusted image dimensions to fit my design, and tested responsiveness across desktop and mobile screen sizes to ensure images displayed consistently without cropping.
+Prompt summary: Asked how to prevent scroll-section images from appearing too large on desktop while keeping them responsive on mobile without image distortion.
+*/
+/* Image Gallery */
+.scroll-container img{
+  flex: 0 0 auto;
+  width: 420px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  scroll-snap-align: start;
+  display: block;
+}
+/* -----    ABOUT PAGE    ------ */
+
+/* -- About Hero -- */
+.about-hero {
+    position:relative;
+    overflow:hidden;
+    background-color: #03306a;
+    color: #ffffff;
+    text-align: center;
+    padding:clamp(4rem,8vw,7rem) 2rem;
+}
+
+.about-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.about-hero p {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+.hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity:.08;
+    z-index:0;
+}
+
+.shape1 {
+    width: 300px;
+    height: 300px;
+    background: var(--light-gray);
+    top: -120px;
+    left: -120px;
+}
+
+.shape2 {
+    width:250px;
+    height:250px;
+    background:#D4A373;
+    bottom:-100px;
+    right:-100px;
+}
+
+/* -- About Mission Section -- */
+.about-mission {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.mission-text {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    max-width: 800px;
+    margin: 2rem auto 0;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #8B1E1E;
+    font-weight: 700;
+}
+
+/* 
+TEAM GRID 
+CSS Grid is used to create a responsive layout for my team cards.
+On mobile they stack vertically, but horizontally on larger screen.
+*/
+
+.team-section{
+padding:4rem 2rem;
+text-align:center;
+}
+
+.team-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:3rem;
+row-gap: 8rem;
+margin-top:3rem;
+}
+
+/* CARD CONTAINER */
+
+.team-card{
+perspective:1000px;
+height:345px;
+}
+
+/* DIRECTOR LARGER */
+
+.director{
+height:730px;
+}
+
+/* INNER CARD */
+
+.card-inner{
+position:relative;
+width:100%;
+height:100%;
+transition:transform .7s ease;
+transform-style:preserve-3d;
+}
+
+/* FLIP EFFECT */
+
+.team-card:hover .card-inner{
+transform:rotateY(180deg);
+}
+
+/* CARD FACES */
+
+.card-front,
+.card-back{
+position:absolute;
+width:100%;
+height:100%;
+border-radius:14px;
+overflow:hidden;
+backface-visibility:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* CARD FRONT */
+
+.card-front img{
+width:100%;
+height:auto;
+object-fit:cover;
+}
+
+/* NAME OVERLAY */
+
+.card-info{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:1rem;
+background:rgba(0,0,0,.55);
+color:white;
+text-align:center;
+}
+
+.card-info h3{
+margin:0;
+font-size:1.2rem;
+}
+
+.card-info p{
+margin:0;
+font-size:.9rem;
+opacity:.9;
+}
+
+/* CARD BACK */
+
+.card-back{
+background:#03306a;
+color:white;
+transform:rotateY(180deg);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:2rem;
+}
+
+.card-back h3{
+margin-bottom:1rem;
+}
+
+.card-back p{
+line-height:1.6;
+font-size:.95rem;
+}
+
+/* -- About Story Grid --*/
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem 2rem;
+}
+
+.story-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    transition:transform .4s ease;
+}
+
+.story-image img:hover{
+    transform:scale(1.04);
+}
+
+.story-text h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.story-text p {
+    font-size: clamp(.95rem, 1.2vw, 1.8rem);
+    margin-bottom: 1rem;
+}
+
+
+
+/* -- About Video -- */
+.about-video {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.video-wrapper {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    aspect-ratio: 16 / 9;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.pull-quote {
+    background:#f6f6f6;
+    padding:clamp(3rem,6vw,5rem) 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.pull-quote blockquote {
+    font-size:clamp(1.6rem,3vw,2.3rem);
+    font-weight:700;
+    color:#8B1E1E;
+    max-width:800px;
+    margin:auto;
+    line-height:1.4;
+}
+
+.about-mission {
+  position: relative;
+}
+
+.about-mission::before {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 300px;
+  background: #8B1E1E;
+  bottom: 240px;
+  left: -10%;
+  transform: rotate(-4deg);
+  opacity: 0.05;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.about-story {
+  position: relative;
+  padding: 6rem 2rem;
+  background: white;
+  overflow: hidden;
+}
+
+.about-story::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 300px;
+  background: #03306a; /* your deep blue */
+  bottom: -120px;
+  left: -10%;
+  transform: rotate(-5deg);
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.about-story > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* -- Footer -- */
+.about-cta {
+    text-align: center;
+    padding:clamp(3rem,6vw,5rem) 2rem;
+    background-color: #F5F5F5;
+}
+
+.about-cta h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 1.5rem;
+}
+
+.inspo {
+    font-size: large;
+    margin: 3%;
+    text-align: center;
+}
+
+.inspo h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: xx-large;
+}
+
+.inspo a {
+    text-decoration: none;
+    color: var(--primary-red);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+}
+
+.inspo a:hover {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+
+/* -------   Footer   ------- */
+footer {
+    background: #8B1E1E;
+    color: white;
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-column1 {
+    text-align: center;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer h4 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #f1f1f1;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+footer p {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid #F5F5F5;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: x-small;
+    color: #f1f1f1;
+}
+
+footer i {
+    margin-right: 0.5rem;
+    
+}
+
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f5f5f5;
+  transform: translateY(-3px);
+}
+
+/* AI Assistance Citation
+Tool: ChatGPT
+Date: February 2, 2026
+Where used: Footer layout
+What AI did: Provided a responsive grid-based footer layout based on my wireframe design.
+What I did: Applied the styles to my project, refined colors and spacing, and ensured consistency with the rest of the site.
+Prompt summary: Asked how to style a footer to match my homepage mockup.
+*/
+
+/* -- Animation -- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* AI Assistance Citation
+Tool: ChatGPT
+Date: February 3, 2026
+Where used: Scroll animation styling (fade-in effects)
+What AI did: Provided CSS styles for fade-in animations using opacity, transform, and transitions to animate content as it appears on screen.
+What I did: Applied the animation classes to selected sections and adjusted timing to match my site’s design.
+Prompt summary: Asked how to add fade-in animations when content scrolls into view.
+*/
+
+/* -- TABLET RESPONSIVE
+When the screen is wider than 720px it changes the layout into 2 columns
+-- */
+
+@media (min-width: 720px) {
+    .desktop-nav {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        color: #8B1E1E;
+        cursor: pointer;
+    }
+    .cards {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat-layout {
+        grid-template-columns: 1fr;
+    }
+    .stats-row {
+        grid-template-columns:1fr 1fr;
+        text-align:left;
+        gap: 2rem;
+    }
+    .stat-img {
+        height: auto;
+        max-height: 260px;
+        object-fit: cover;
+    }
+
+    /* AI Assistance Citation
+    Tool: ChatGPT
+    Date: February 3, 2026
+    Where used: Image Gallery
+    What AI did: Provided CSS styles for fade-in animations using opacity, transform, and transitions to animate content as it appears on screen.
+    What I did: Applied the animation classes to selected sections and adjusted timing to match my site’s design.
+    Prompt summary: Asked how to add fade-in animations when content scrolls into view.
+    */
+    .scroll-container img{
+        width: min(420px, 80vw);
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-hero{
+        padding:4rem 1.5rem;
+    }
+
+    .team-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .director{
+        grid-column:span 2;
+    }
+
+
+}
+
+/* -- DESKTOP RESPONSIVE
+When the screen is larger than 980px the grid expands to 3 columns.
+-- */
+
+@media (min-width:980px){
+
+    .desktop-nav{
+        display:block;
+    }
+
+    .menu-toggle{
+        display:none;
+    }
+
+    .cards{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .team-grid{
+        grid-template-columns:repeat(4,1fr);
+        grid-auto-rows:260px;
+    }
+
+    .director{
+        grid-column:span 2;
+        grid-row:span 2;
+    }
+
+    .coordinator{
+        grid-column:span 2;
+    }
+
+    .mentor{
+        grid-column:span 1;
+    }
+
+}

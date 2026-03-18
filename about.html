@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Cycles International</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+      <!-- HEADER SECTION
+      This section contains the website branding and the main navigation menu.
+      Flexbox will be used in CSS to align the logo and navigation links
+      horizontally across the top of the page.
+      -->
+     <header class="site-header">
+      <div class="logo"><i class="fa-solid fa-globe stat-icon"></i>
+         <span> Breaking Cycles International</span>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+     </nav>
+
+     <!-- Mobile Nav Button -->
+     <button class="menu-toggle" id="mobileToggle" aria-label="Open Menu">
+      <i class="fa-solid fa-bars stat-icon"></i>
+     </button>
+     </header>
+
+     <!-- Mobile Navigation -->
+   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <button class="close-menu" id="closeMenu" aria-label="Close menu">
+         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+     </nav>
+
+     <!-- MAIN AREA
+      This element wraps all of my primary content of the page.
+      This helps screen readers identify the main information 
+      of the webpage. -->
+
+     <main>
+        <!-- Hero -->
+         <section class="about-hero">
+            <div class="hero-shape shape1"></div>
+            <div class="hero-shape shape2"></div>
+            <h1>Breaking Cycles. Building Futures.</h1>
+            <p>Rooted in faith. Driven by purpose. Committed to change.</p>
+         </section>
+
+         <!-- Mission Section -->
+         <section class="about-mission fade-in">
+            <div class="mission-content">
+                <h2>Our Belief</h2>
+                <p class="mission-text">Every young person is <span class="highlight">created with purpose</span>,
+                    deserving of <span class="highlight">dignity</span>,
+                    and empowered to choose a <span class="highlight">better future</span>.
+                </p>
+            </div>
+         </section>
+         
+         <!-- Team Section
+          This section introduces the leadership and mentors in the organization.
+          I used CSS Grid to create a multi-column card layout that adjust based on the screen size.
+          -->
+
+         <!-- Team Section -->
+         <section class="team-section fade-in">
+
+            <h2>Meet Our Leadership</h2>
+
+            <div class="team-grid">
+
+            <!-- DIRECTOR -->
+            <article class="team-card director">
+
+               <div class="card-inner">
+
+                  <!-- FRONT -->
+                  <div class="card-front">
+                  <img src="images/executive_director.png" alt="Executive Director dressed in a grey business suit">
+
+                  <div class="card-info">
+                  <h3>Executive Director</h3>
+                  <p>Leadership & Vision</p>
+                  </div>
+                  </div>
+
+                  <!-- BACK -->
+                  <div class="card-back">
+                  <h3>Executive Director</h3>
+                  <p>
+                  Leading the mission to mentor youth, build faith-centered leadership,
+                  and transform communities through accountability and guidance.
+                  </p>
+                  </div>
+
+               </div>
+            </article>
+
+
+            <!-- COORDINATOR -->
+            <article class="team-card coordinator">
+
+               <div class="card-inner">
+
+                  <div class="card-front">
+                  <img src="images/program_coordinator.png" alt="Program Coordinator dressed in a dress casual open grey blazer">
+
+                  <div class="card-info">
+                  <h3>Program Coordinator</h3>
+                  <p>Program Leadership</p>
+                  </div>
+                  </div>
+
+                  <div class="card-back">
+                  <h3>Program Coordinator</h3>
+                  <p>
+                  Oversees mentorship programs, organizes community workshops,
+                  and connects youth with opportunities for growth.
+                  </p>
+                  </div>
+
+               </div>
+            </article>
+
+
+            <!-- MENTOR -->
+            <article class="team-card mentor">
+
+               <div class="card-inner">
+
+                  <div class="card-front">
+                  <img src="images/mentor1.png" alt="African American Youth mentor wearing a Breaking Cycles International tee shirt standing professionally.">
+
+                  <div class="card-info">
+                  <h3>Youth Mentor</h3>
+                  <p>Mentorship</p>
+                  </div>
+                  </div>
+
+                  <div class="card-back">
+                  <h3>Youth Mentor</h3>
+                  <p>
+                  Provides guidance, accountability, and encouragement
+                  to help youth make positive life choices.
+                  </p>
+                  </div>
+
+               </div>
+            </article>
+
+
+            <!-- MENTOR -->
+            <article class="team-card mentor">
+
+               <div class="card-inner">
+
+                  <div class="card-front">
+                  <img src="images/mentor2.png" alt="Caucasian Youth mentor wearing a Breaking Cycles International tee shirt standing professionally.">
+
+                  <div class="card-info">
+                  <h3>Youth Mentor</h3>
+                  <p>Mentorship</p>
+                  </div>
+                  </div>
+
+                  <div class="card-back">
+                  <h3>Youth Mentor</h3>
+                  <p>
+                  Supports students through mentorship, leadership training,
+                  and life skills development.
+                  </p>
+                  </div>
+
+               </div>
+            </article>
+
+
+            <!-- MENTOR -->
+            <article class="team-card mentor">
+
+               <div class="card-inner">
+
+                  <div class="card-front">
+                  <img src="images/mentor3.png" alt="Peruvian Youth mentor wearing a Breaking Cycles International tee shirt standing professionally.">
+
+                  <div class="card-info">
+                  <h3>Youth Mentor</h3>
+                  <p>Mentorship</p>
+                  </div>
+                  </div>
+
+                  <div class="card-back">
+                  <h3>Youth Mentor</h3>
+                  <p>
+                  Encourages youth to develop discipline, confidence,
+                  and a vision for their future.
+                  </p>
+                  </div>
+
+               </div>
+            </article>
+
+            </div>
+         </section>
+
+         <!-- Story Section -->
+           <section class="about-story fade-in">
+            <div class="story-grid">
+                <div class="story-image">
+                    <img src="images/group_pic.png" alt="Two youth mentors standing in the middle taking a picture with youths.">
+                </div>
+                <div class="story-text">
+                    <h2>Why We Exist</h2>
+                    <p>Beyond The Cycle was created to interrupt patterns of violence, instability, and hopelessness by providing mentorship, faith-based guidance, and practical life tools.</p>
+                    <p>We believe change happens through relationships - through consistent support, accountability, and love.</p>
+                </div>
+            </div>
+           </section>
+
+           <section class="pull-quote">
+            <blockquote>
+                “We don’t just interrupt cycles.
+                We replace them with vision.”
+            </blockquote>
+          </section>
+
+         <!-- Video -->
+          <section class="about-video fade-in">
+            <h2>See The Vision In Action</h2>
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="images/why_vid.mp4" type="video/mp4">
+                </video>
+            </div>
+          </section>
+
+          <section class="about-cta">
+            <h2>Join The Movement</h2>
+            <a href="programs.html" class="btn explore">Explore Our Programs</a>
+          </section>
+
+          <section class="inspo">
+            <h3>Resources</h3>
+            <a href="https://www.canva.com/learn/unique-inspiring-about-page/">About Page Inspiration</a><br>
+            <a href="https://www.canva.com/create/profile-pictures/">Create Your Profile Picture Now!</a>
+          </section>
+     </main>
+
+     <!-- FOOTER SECTION
+      The footer has supporting information and additional links. -->
+
+     <!-- Footer -->
+     <footer class="site-footer">
+      <div class="footer-grid">
+         <!-- Column 1 -->
+         <div class="footer-column1">
+            <h4>Breaking Cycles International</h4>
+            <nav class="footer-nav">
+               <a href="index.html">Home</a>
+               <a href="about.html">About</a>
+               <a href="programs.html">Programs</a>
+               <a href="resources.html">Resources</a>
+               <a href="contact.html">Contact</a>
+            </nav>
+         </div>
+
+         <!-- Column 2 -->
+         <div class="footer-column">
+            <h4>Connect With Us</h4>
+            <p><i class="fa-solid fa-envelope stat-icon" aria-hidden="true"></i>Email: info@beyondthecycle.org</p>
+            <p><i class="fa-solid fa-phone stat-icon" aria-hidden="true"></i>1+ 588-876-7960</p>
+         </div>
+
+         <!-- Column 3 -->
+         <div class="footer-column">
+            <h4>Get Involved</h4>
+            <a href="#">Volunteer</a><br>
+            <a href="#">Donate</a>
+         </div>
+
+         <!-- Column 4 -->
+         <div class="footer-column">
+            <h4>Programs</h4>
+            <p>What cycle are you ready to break?</p>
+
+            <div class="social-icons">
+               <a href="#" aria-label="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+               </a>
+               <a href="#" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+               </a>
+               <a href="#" aria-label="YouTube">
+                  <i class="fa-brands fa-youtube"></i>
+               </a>
+               <a href="#" aria-label="X (Twitter)">
+                  <i class="fa-brands fa-x-twitter"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="footer-bottom">
+         <p>&copy; 2026 Gianina Lecar | ITD 210</p>
+      </div>
+     </footer>
+
+     <script>
+      // AI Assistance Citation
+      // Tool: ChatGPT
+      // Date: 2026-02-03
+      // Where used: JavaScript for mobile hamburger menu toggle
+      // What AI did: Suggested a simple JavaScript solution to toggle a CSS class that opens and closes the slide-in mobile navigation menu when the hamburger button is tapped.
+      // What I did: Implemented the script, connected it to my HTML elements by ID, and tested the interaction to ensure the menu opens and closes correctly on mobile devices.
+      // Prompt summary: Asked how to make a hamburger menu open and close a slide-in mobile navigation menu.
+      const toggleBtn = document.getElementById("mobileToggle");
+      const mobileNav = document.getElementById("mobileNav");
+      const closeBtn = document.getElementById("closeMenu");
+      const mobileLinks = mobileNav.querySelectorAll("a");
+      
+      closeBtn.addEventListener("click", () => {
+      mobileNav.classList.remove("open");
+      });
+
+      toggleBtn.addEventListener("click", () => {
+         mobileNav.classList.toggle("open");
+      });
+
+      mobileLinks.forEach(link => {
+         link.addEventListener("click", () => {
+            mobileNav.classList.remove("open");
+         });
+      });
+      //Scroll Fade In
+      // AI Assistance Citation
+      // Tool: ChatGPT
+      // Date: 2026-02-03
+      // Where used: JavaScript for scroll-triggered fade-in animations
+      // What AI did: Suggested using the Intersection Observer API to detect when elements enter the viewport and apply animation classes.
+      // What I did: Implemented the observer, connected it to my animated elements, and tested performance and behavior across screen sizes.
+      // Prompt summary: Asked how to animate elements so they fade in as the user scrolls.
+      const fadeElements = document.querySelectorAll(".fade-in");
+
+      const observer = new IntersectionObserver(
+         entries => {
+           entries.forEach(entry => {
+             if (entry.isIntersecting) {
+               entry.target.classList.add("visible");
+               observer.unobserve(entry.target);
+            }
+         });
+         },
+         { threshold: 0.2 }
+      );
+      fadeElements.forEach(el => observer.observe(el));
+     </script>
+</body>
+</html>
