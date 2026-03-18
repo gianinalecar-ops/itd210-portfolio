@@ -9,7 +9,7 @@ This project is a responsive site for a nonprofit-focused website for Breaking C
 - Interactive elements
 - Mobile-first design approach
 - Media queries for tablet and desktop responsiveness
-- - Accessible design with alt text and semantic HTML
+- Accessible design with alt text and semantic HTML
 
 ## Course Information
 This was created as part of an **ITD 210 Web Design** project. It demonstrates the use of CSS Grid and Flexbox to build a professional, responsive web page with accessibility and structured layout principles.
