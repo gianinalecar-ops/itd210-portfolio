@@ -1,6 +1,6 @@
 # itd210-portfolio
-## Project Description
-This project is a responsive About Page for a nonprofit-focused website centered on mentorship, faith, and community impact. The page highlights the organization’s mission, leadership team, and purpose through modern layout techniques and engaging visual design.
+Project Description
+This project is a responsive site for a nonprofit-focused website centered on mentorship, faith, and community impact. The page highlights the organization’s mission through modern layout techniques and engaging visual design.
 
 ## Technologies Used
 - HTML5 (semantic structure)
