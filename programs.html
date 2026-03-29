@@ -52,4 +52,27 @@
         </ul>
      </nav>
 </body>
+    <main>
+        <h2>Pokémon Fetcher</h2>
+    <button id="loadBtn">Load Pokémon</button>
+    <input type="text" id="searchInput" placeholder="Search Pokémon by name">
+    <button id="searchBtn">Search</button>
+  </section>
+
+  <!-- Status -->
+  <section>
+    <p id="loadingMessage" style="display: none;">Loading...</p>
+    <p id="errorMessage" style="color: red;"></p>
+  </section>
+
+  <!-- Results -->
+  <section>
+    <div id="dataContainer">
+      <!-- Fetched Pokémon data will go here -->
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+    </main>
 </html>
