@@ -246,43 +246,6 @@ a:hover {
   transform: translateY(-2px);
 }
 
-/* Cat Fact Section Styling  */
-#cat-facts-section {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #f9f9f9;
-}
-
-#cat-facts-section h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-#fact-box {
-  margin: 20px auto;
-  padding: 20px;
-  width: 60%;
-  max-width: 600px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-size: 18px;
-}
-
-#new-fact-btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  background-color: #00433b;
-  color: white;
-  cursor: pointer;
-}
-
-#new-fact-btn:hover {
-  background-color: #00665c;
-}
-
 /* -- Cards --*/
 #highlights {
     padding: 10rem 3rem;
