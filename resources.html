@@ -6,8 +6,7 @@
     <title>Resources | Breaking Cycles International</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     
     <link rel="stylesheet" href="css/style.css">
@@ -27,6 +26,7 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="catfact.html">View Cat Facts</a></li>
         </ul>
      </nav>
 
@@ -47,6 +47,7 @@
             <li><a href="programs.html">Programs</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="catfact.html">View Cat Facts</a></li>
         </ul>
      </nav>
 
@@ -60,45 +61,94 @@
         </section>
 
         <!-- Resource Section -->
-        <section class="section">
+        <section class="resources-section">
             <h2>Support Resources</h2>
-            <div class="grid">
-                <div class="card">
+            <div class="resources-grid">
+                <div class="resource-card" onclick="toggleCard(this)">
+                    <i class="fa-solid fa-hand-holding-heart resource-icon"></i>
                     <h3>Community Outreach</h3>
                     <p>Access food banks, housing assistance, and emergency support programs
                     that meet immediate needs in your community.</p>
+
+                  <div class="more-info">
+                     <ul>
+                        <li>Food banks & meal programs</li>
+                        <li>Emergency housing support</li>
+                        <li>Financial assistance resources</li>
+                     </ul>
+                  </div>  
                 </div>
 
-                <div class="card">
+                <div class="resource-card" onclick="toggleCard(this)">
+                    <i class="fa-solid fa-people-group resource-icon"></i>
                     <h3>Mentorship & Growth</h3>
                     <p>Find mentorship programs and personal development resources that
                     provide guidance, accountability, and encouragement.</p>
+
+                  <div class="more-info">
+                     <ul>
+                        <li>1-on-1 mentoring</li>
+                        <li>Life coaching</li>
+                        <li>Accountability groups</li>
+                     </ul>
+                  </div>                    
                 </div>
 
-                <div class="card">
+                <div class="resource-card" onclick="toggleCard(this)">
+                    <i class="fa-solid fa-graduation-cap resource-icon"></i>
                     <h3>Education & Career</h3>
                     <p>Explore GED programs, job training, and career-building tools
                     designed to help you create long-term stability.</p>
+
+                  <div class="more-info">
+                     <ul>
+                        <li>GED prep and testing support</li>
+                        <li>Job training & certification programs</li>
+                        <li>College and trade school guidance</li>
+                     </ul>
+                  </div>                    
                 </div>
 
-                <div class="card">
+                <div class="resource-card" onclick="toggleCard(this)">
+                    <i class="fa-solid fa-house-chimney resource-icon"></i>
                     <h3>Family Support</h3>
                     <p>Strengthen your home with parenting resources, counseling services,
                     and family support programs.</p>
+
+                  <div class="more-info">
+                     <ul>
+                        <li>Housing stability and emergency family assistance</li>
+                        <li>Child development and early learning resources</li>
+                        <li>Mental health and emotional wellness support</li>
+                     </ul>
+                  </div>                    
                 </div>
 
             </div>
         </section>
 
-        <section class="section image-section">
-            <h2>Community In Action</h2>
-            <p>Breaking cycles happens through connection, support, and community.
-            Together, we create spaces where individuals can grow and thrive.</p>
-            <img src="" alt="">
-        </section>
+        <section class="resources-split">
+            <div class="resources-text">
+               <h2>Support That Meets You Where You Are</h2>
+               <p>
+                  At Breaking Cycles, we provide resources designed to uplift individuals and families 
+                  through every stage of their journey. Whether you need mentorship, educational support, 
+                  or guidance for your family, we are here to walk alongside you.
+               </p>
+               <p>
+                  Our programs are rooted in compassion, growth, and real transformation—because no one 
+                  should have to break cycles alone.
+               </p>
+               <a href="services.html" class="resources-btn">Explore Services</a>
+            </div>
+
+            <div class="resources-image">
+               <img src="images/resource_img1.png" alt="Community mentorship and support session">
+            </div>
+         </section>
 
         <!-- Crisis Section -->
-        <section class="section">
+        <section class="crisis-section">
             <h2>Immediate Help</h2>
             <p>If you are in crisis or need urgent support, please use the resources below:</p>
             <ul>
@@ -108,11 +158,11 @@
             </ul>
         </section>
 
-        <section class="cta">
+        <section class="resources-cta">
             <h2>Need More Support?</h2>
             <p>Our team is here to help connect you with the right resources and walk
             alongside you on your journey.</p>
-            <button>Contact Us</button>
+            <a href="contact.html" class="btn primary">Contact Us</a>
         </section>
      </main>
 
@@ -125,7 +175,7 @@
             <nav class="footer-nav">
                <a href="index.html">Home</a>
                <a href="about.html">About</a>
-               <a href="programs.html">Programs</a>
+               <a href="services.html">Services</a>
                <a href="resources.html">Resources</a>
                <a href="contact.html">Contact</a>
             </nav>
@@ -169,6 +219,11 @@
       <div class="footer-bottom">
          <p>&copy; 2026 Gianina Lecar | ITD 210</p>
       </div>
-     </footer>     
+     </footer> 
+     <script>
+         function toggleCard(card) {
+         card.classList.toggle("active");
+         }
+      </script>    
 </body>
 </html>
