@@ -14,5 +14,19 @@ This project is a responsive site for a nonprofit-focused website for Breaking C
 ## Course Information
 This was created as part of an **ITD 210 Web Design** project. It demonstrates the use of CSS Grid and Flexbox to build a professional, responsive web page with accessibility and structured layout principles.
 
+# Milestone 3 — Gallery Page
+Name: Gianina Lecar
+
+This milestone adds a fully responsive gallery page with:
+
+- CSS Grid layout
+- Filter buttons by category
+- Hover overlay with captions
+- Lightbox modal for enlarged images
+- Accessibility features (alt text, reduced motion, keyboard focus)
+
+This page improves interactivity and visual storytelling compared to previous milestones.
+
+
 ### Author
 Gianina Lecar

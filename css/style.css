@@ -947,15 +947,25 @@ font-size:.95rem;
     font-size: var(--fs-body);
 }
 .resources-image {
-    margin-top: var(--space-lg);
+  flex: 1;
+  min-width: 280px;
+  margin-top: var(--space-lg);
 }
 
 .resources-image img {
-    width: 100%;
-    border-radius: 10px;
-    display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Crisis Section */
 .crisis-section {
     text-align: center;
     padding: var(--space-lg) var(--space-md);
