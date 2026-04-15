@@ -741,10 +741,15 @@ font-size:.95rem;
 
 .resources-section {
     padding: var(--space-lg) var(--space-md);
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
+.resources-section h2 {
+    color: var(--primary-blue);
+    text-align: center;
+    padding-bottom: var(--space-md);
+}
 .resources-intro {
     text-align: center;
     max-width: 800px;
@@ -759,16 +764,49 @@ font-size:.95rem;
 }
 
 .resource-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.resource-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.resource-card:nth-child(2) { animation-delay: 0.2s; }
+.resource-card:nth-child(3) { animation-delay: 0.4s; }
+.resource-card:nth-child(4) { animation-delay: 0.6s; }
+
+/* ICON STYLE */
+.resource-icon {
+  font-size: 2rem;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
 }
+
+/* hidden content */
+.more-info {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  margin-top: 0.5rem;
+}
+
+/* ACTIVE (clicked) state */
+.resource-card.active .more-info {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* optional visual feedback */
+.resource-card.active {
+  border-left: 5px solid var(--primary-red);
+  background: #ffffff;
+}
+
 
 .resource-card h3 {
     color: var(--primary-blue);
@@ -788,14 +826,95 @@ font-size:.95rem;
     margin-bottom: 0.5rem;
 }
 
+.resources-split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+/* TEXT SIDE */
+.resources-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.resources-text h2 {
+  font-size: 2.2rem;
+  color: #03306a;
+  margin-bottom: 1rem;
+}
+
+.resources-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.resources-btn {
+  display: inline-block;
+  background: #03306a;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.resources-btn:hover {
+  background: #0550b3;
+}
+
+/* IMAGE SIDE */
 .resources-image {
-    margin-top: var(--space-lg);
+  flex: 1;
+  min-width: 280px;
+  margin-top: var(--space-lg);
 }
 
 .resources-image img {
-    width: 100%;
-    border-radius: 10px;
-    display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Crisis Section */
+.crisis-section {
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    background: var(--light-gray);
+    margin-top: var(--space-lg);
+}
+
+.crisis-section h2 {
+    color: var(--primary-blue);
+}
+
+.crisis-section p {
+    margin-top: 1rem;
+}
+
+.crisis-section ul {
+    margin-top: 1.5rem;
+    list-style: none;
+}
+
+.crisis-section li {
+    margin-bottom: 0.8rem;
+    font-size: var(--fs-body);
 }
 
 /* CTA section */
@@ -804,7 +923,6 @@ font-size:.95rem;
     background: var(--primary-blue);
     color: var(--white);
     padding: var(--space-lg) var(--space-md);
-    margin-top: var(--space-lg);
 }
 
 .resources-cta h2 {
@@ -813,11 +931,13 @@ font-size:.95rem;
 
 .resources-cta p {
     margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .resources-cta .btn {
     margin-top: 1.5rem;
 }
+
 
 /* -------   Footer   ------- */
 footer {
@@ -979,6 +1099,17 @@ When the screen is wider than 720px it changes the layout into 2 columns
     .resources-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+}
+
+@media (max-width: 768px) {
+  .resources-split {
+    flex-direction: column;
+  }
+
+  .resources-image img {
+    height: 250px;
+  }
 }
 
 /* -- DESKTOP RESPONSIVE
