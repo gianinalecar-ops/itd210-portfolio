@@ -776,7 +776,6 @@ font-size:.95rem;
     text-align: center;
     padding-bottom: var(--space-md);
 }
-
 .resources-intro {
     text-align: center;
     max-width: 800px;
@@ -955,6 +954,31 @@ font-size:.95rem;
     width: 100%;
     border-radius: 10px;
     display: block;
+}
+
+.crisis-section {
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    background: var(--light-gray);
+    margin-top: var(--space-lg);
+}
+
+.crisis-section h2 {
+    color: var(--primary-blue);
+}
+
+.crisis-section p {
+    margin-top: 1rem;
+}
+
+.crisis-section ul {
+    margin-top: 1.5rem;
+    list-style: none;
+}
+
+.crisis-section li {
+    margin-bottom: 0.8rem;
+    font-size: var(--fs-body);
 }
 
 /* CTA section */
