@@ -703,7 +703,6 @@ font-size:.95rem;
   z-index: 1;
 }
 
-/* -- Footer -- */
 .about-cta {
     text-align: center;
     padding:clamp(3rem,6vw,5rem) 2rem;
@@ -736,6 +735,88 @@ font-size:.95rem;
 .inspo a:hover {
     text-decoration: none;
     color: var(--primary-blue);
+}
+
+/* ------- RESOURCES PAGE ------- */
+
+.resources-section {
+    padding: var(--space-lg) var(--space-md);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.resources-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-lg);
+    font-size: var(--fs-body);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.resource-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.resource-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.resource-card p {
+    font-size: var(--fs-body);
+}
+
+.resource-card ul {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+}
+
+.resource-card li {
+    margin-bottom: 0.5rem;
+}
+
+.resources-image {
+    margin-top: var(--space-lg);
+}
+
+.resources-image img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+/* CTA section */
+.resources-cta {
+    text-align: center;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: var(--space-lg) var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.resources-cta h2 {
+    color: var(--white);
+}
+
+.resources-cta p {
+    margin-top: 1rem;
+}
+
+.resources-cta .btn {
+    margin-top: 1.5rem;
 }
 
 /* -------   Footer   ------- */
@@ -895,7 +976,9 @@ When the screen is wider than 720px it changes the layout into 2 columns
         grid-column:span 2;
     }
 
-
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* -- DESKTOP RESPONSIVE
@@ -934,4 +1017,7 @@ When the screen is larger than 980px the grid expands to 3 columns.
         grid-column:span 1;
     }
 
+    .resources-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
