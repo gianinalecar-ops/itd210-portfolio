@@ -833,10 +833,40 @@ font-size:.95rem;
   background: #ffffff;
 }
 
-.resource-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.resource-card:nth-child(2) { animation-delay: 0.2s; }
+.resource-card:nth-child(3) { animation-delay: 0.4s; }
+.resource-card:nth-child(4) { animation-delay: 0.6s; }
+
+/* ICON STYLE */
+.resource-icon {
+  font-size: 2rem;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
 }
+
+/* hidden content */
+.more-info {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  margin-top: 0.5rem;
+}
+
+/* ACTIVE (clicked) state */
+.resource-card.active .more-info {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* optional visual feedback */
+.resource-card.active {
+  border-left: 5px solid var(--primary-red);
+  background: #ffffff;
+}
+
 
 .resource-card h3 {
     color: var(--primary-blue);
