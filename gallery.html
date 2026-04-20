@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://kit.fontawesome.com https://cdn.jsdelivr.net https://cdn.tailwindcss.com 'unsafe-inline';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https:;
+        media-src 'self';
+        connect-src 'self';
+    ">
+    <title>Gallery | Breaking Cycles International</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+     <!-- Header Section -->
+     <header class="site-header">
+      <div class="logo"><i class="fa-solid fa-globe stat-icon"></i>
+         <span> Breaking Cycles International</span>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="catfact.html">View Cat Facts</a></li>
+        </ul>
+     </nav>
+
+     <!-- Mobile Nav Button -->
+     <button class="menu-toggle" id="mobileToggle" aria-label="Open Menu">
+      <i class="fa-solid fa-bars stat-icon"></i>
+     </button>
+     </header>
+
+     <!-- Mobile Navigation -->
+   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <button class="close-menu" id="closeMenu" aria-label="Close menu">
+         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="catfact.html">View Cat Facts</a></li>
+        </ul>
+     </nav>
+
+     <main>
+        <!-- Hero Section-->
+        <section class="about-hero">
+            <div class="hero-shape shape1"></div>
+            <div class="hero-shape shape2"></div>
+            <h1>Our Impact In Action</h1>
+            <p>Explore moments of growth, support, and transformation.</p>
+        </section>
+
+        <!-- Filter Buttons -->
+        <!-- Allows users to interact and explore specific categories --> 
+        <section class="filters">
+            <button data-filter="all">All</button>
+            <button data-filter="education">Education</button>
+            <button data-filter="family">Family</button>
+            <button data-filter="community">Community</button>
+        </section> 
+
+        <!-- GALLERY GRID -->
+        <!-- CSS Grid creates a flexible, responsive layout -->
+        <section class="gallery-grid">
+
+            <!-- IMAGE CARD -->
+            <!-- Each card holds image + overlay for interaction -->
+            <figure class="gallery-item" data-category="education">
+                <img src="images/gallery_edu.png" alt="Mentor tutoring a group of college kids" loading="lazy">
+                
+                <!-- Overlay appears on hover/focus -->
+                <figcaption>
+                    <h3>Learning Together</h3>
+                    <p>Mentor Jordan guides students through collaborative study, building confidence and academic success.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="education">
+                <img src="images/gallery_tutor.png" alt="A mentor tutoring kids in a library" loading="lazy">
+                
+                <figcaption>
+                    <h3>One Step at a Time</h3>
+                    <p>Personalized mentorship creates a safe space for students to ask questions and grow.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="education">
+                <img src="images/gallery_tutor2.png" alt="A mentor talking to a group of elementary school kids" loading="lazy">
+                
+                <figcaption>
+                    <h3>Unlocking Potential</h3>
+                    <p>Through education, students gain the tools to break cycles and shape their future.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="family">
+                <img src="images/gallery_fam_support.png" alt="Two mentors talking to a family" loading="lazy">
+
+                <figcaption>
+                    <h3>Healing Conversations</h3>
+                    <p>Mentor Amina leads families through open dialogue, strengthening trust and understanding.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="family">
+                <img src="images/gallery_family2.png" alt="A mom hugging her son with the mentor in the background" loading="lazy">
+                
+                <figcaption>
+                    <h3>Rebuilding Connections</h3>
+                    <p>Supportive guidance helps families reconnect and move forward together.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="family">
+                <img src="images/gallery_family3.png" alt="Two mentors talking to a father and daughter" loading="lazy">
+                
+                <!-- Overlay appears on hover/focus -->
+                <figcaption>
+                    <h3>Stronger Together</h3>
+                    <p>Shared experiences in a safe space foster healing, unity, and resilience.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="community">
+                <img src="images/gallery_communiy.png" alt="Volunteers cleaning up an urban neighborhood" loading="lazy">
+                
+                <figcaption>
+                    <h3>Community in Action</h3>
+                    <p>Mentor David leads volunteers working together to create lasting impact</p>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="community">
+                <img src="images/gallery_community2.png" alt="Volunteers organizing donation boxes and food supplies" loading="lazy">
+                
+                <figcaption>
+                    <h3>Empower Through Service</h3>
+                    <p>Outreach programs connect people with resources and opportunities for growth.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-category="community">
+                <img src="images/gallery_community3.png" alt="Volunteers working together at a neighborhood cleanup event" loading="lazy">
+                
+                <figcaption>
+                    <h3>Building Brighter Futures</h3>
+                    <p>Collective effort transforms communities and inspires long-term change.</p>
+                </figcaption>
+            </figure>
+     </main>
+
+     <!-- Footer -->
+     <footer class="site-footer">
+      <div class="footer-grid">
+         <!-- Column 1 -->
+         <div class="footer-column1">
+            <h4>Breaking Cycles International</h4>
+            <nav class="footer-nav">
+               <a href="index.html">Home</a>
+               <a href="about.html">About</a>
+               <a href="services.html">Services</a>
+               <a href="resources.html">Resources</a>
+               <a href="contact.html">Contact</a>
+            </nav>
+         </div>
+
+         <!-- Column 2 -->
+         <div class="footer-column">
+            <h4>Connect With Us</h4>
+            <p><i class="fa-solid fa-envelope stat-icon" aria-hidden="true"></i>Email: info@breakingcycles.org</p>
+            <p><i class="fa-solid fa-phone stat-icon" aria-hidden="true"></i>1+ 588-876-7960</p>
+         </div>
+
+         <!-- Column 3 -->
+         <div class="footer-column">
+            <h4>Get Involved</h4>
+            <a href="#">Volunteer</a><br>
+            <a href="#">Donate</a>
+         </div>
+
+         <!-- Column 4 -->
+         <div class="footer-column">
+            <h4>Programs</h4>
+            <p>What cycle are you ready to break?</p>
+
+            <div class="social-icons">
+               <a href="#" aria-label="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+               </a>
+               <a href="#" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+               </a>
+               <a href="#" aria-label="YouTube">
+                  <i class="fa-brands fa-youtube"></i>
+               </a>
+               <a href="#" aria-label="X (Twitter)">
+                  <i class="fa-brands fa-x-twitter"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="footer-bottom">
+         <p>&copy; 2026 Gianina Lecar | ITD 210</p>
+      </div>
+     </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <!-- Why: Allows users to view images in a larger, focused view -->
+    <div class="lightbox" id="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+    </div>
+
+     <script>
+        // FILTER FUNCTION
+        // Why: Allows users to view specific categories
+        const buttons = document.querySelectorAll(".filters button");
+        const items = document.querySelectorAll(".gallery-item");
+
+        buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filter = button.dataset.filter;
+
+            items.forEach(item => {
+            if (filter === "all" || item.dataset.category === filter) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+            });
+        });
+        });
+
+        // LIGHTBOX FUNCTION
+        // Why: Enhances user experience by enlarging images
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.querySelector(".lightbox-img");
+
+        items.forEach(item => {
+        item.addEventListener("click", () => {
+            const img = item.querySelector("img");
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+        });
+        });
+
+        // CLOSE LIGHTBOX
+        document.querySelector(".close").addEventListener("click", () => {
+        lightbox.style.display = "none";
+        });
+     </script>    
+</body>
+</html>
