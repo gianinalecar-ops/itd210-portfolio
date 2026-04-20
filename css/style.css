@@ -41,13 +41,16 @@ body {
     color: #2B2B2B;
 }
 
+p {font-family: 'Inter', sans-serif;}
+
 h1 {
     font-size: var(--fs-heading);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 h2 {
     font-size: var(--fs-subheading);
+    font-family: 'Montserrat', sans-serif;
     color: #03306a;
 }
 
@@ -246,29 +249,6 @@ a:hover {
   transform: translateY(-2px);
 }
 
-/* ---------------- LOAD ANIMATION ---------------- */
-@keyframes loadIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.load-in {
-    opacity: 0;
-    animation: loadIn 2s ease forwards;
-}
-
-.load-in-delay {
-    opacity: 0;
-    animation: loadIn 2s ease forwards;
-    animation-delay: 0.6s;
-}
-
 /* -- Cards --*/
 #highlights {
     padding: 10rem 3rem;
@@ -278,35 +258,15 @@ a:hover {
 
 .cards {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
     gap: 2rem;
     margin-top: 3rem;
 }
 
 .card {
-    padding: 3rem;
+    padding: 3rem 3rem;
     border-radius: 12px;
     background: #ffffff;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.fade-in.visible .card:nth-child(1) {
-    transition-delay: 0.2s;
-}
-
-.fade-in.visible .card:nth-child(2) {
-    transition-delay: 0.4s;
-}
-
-.fade-in.visible .card:nth-child(3) {
-    transition-delay: 0.6s;
-}
-
-.fade-in.visible .card {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .card h3 i {
@@ -981,6 +941,87 @@ font-size:.95rem;
     margin-top: 1.5rem;
 }
 
+/* --------- Gallery Page ---------*/
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* IMAGE CARD */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* IMAGE */
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* OVERLAY */
+.gallery-item figcaption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+/* HOVER + KEYBOARD FOCUS */
+.gallery-item:hover img,
+.gallery-item:focus-within img {
+  transform: scale(1.1);
+}
+
+.gallery-item:hover figcaption,
+.gallery-item:focus-within figcaption {
+  transform: translateY(0);
+}
+
+/* FILTER BUTTONS */
+.filters button {
+  margin: 1.5rem 0.2rem 1rem 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--light-gray);
+  color: var(--text-dark);
+  font-size: clamp(1rem,1vw,1.2rem);
+}
+
+.filters button:hover {
+  background: var(--primary-blue);
+  color: var(--light-gray);
+  transform: translateY(-2px);
+  transition: transform 0.6s ease;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:black;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+}
 
 /* -------   Footer   ------- */
 footer {
@@ -1143,6 +1184,10 @@ When the screen is wider than 720px it changes the layout into 2 columns
         grid-template-columns: repeat(2, 1fr);
     }
 
+      .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -1194,4 +1239,14 @@ When the screen is larger than 980px the grid expands to 3 columns.
     .resources-grid {
         grid-template-columns: repeat(4, 1fr);
     }
+
+      .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
 }
