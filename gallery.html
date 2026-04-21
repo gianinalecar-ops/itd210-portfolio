@@ -232,6 +232,25 @@
     </div>
 
      <script>
+      const toggleBtn = document.getElementById("mobileToggle");
+      const mobileNav = document.getElementById("mobileNav");
+      const closeBtn = document.getElementById("closeMenu");
+      const mobileLinks = mobileNav.querySelectorAll("a");
+      
+      closeBtn.addEventListener("click", () => {
+      mobileNav.classList.remove("open");
+      });
+
+      toggleBtn.addEventListener("click", () => {
+         mobileNav.classList.toggle("open");
+      });
+
+      mobileLinks.forEach(link => {
+         link.addEventListener("click", () => {
+            mobileNav.classList.remove("open");
+         });
+      });
+
         // FILTER FUNCTION
         // Allows users to view specific categories
         const buttons = document.querySelectorAll(".filters button");
