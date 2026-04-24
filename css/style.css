@@ -81,7 +81,7 @@ This allows it to adapt to different screen sizes.
 
 .desktop-nav ul {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.4rem;
     list-style: none;
 }
 
@@ -89,7 +89,7 @@ This allows it to adapt to different screen sizes.
     text-decoration: none;
     color: #8B1E1E;
     font-weight: 800;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 .menu-toggle {
