@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-     <!-- Header Section -->
-     <header class="site-header">
+    <!-- Header Section -->
+    <header class="site-header">
       <div class="logo"><i class="fa-solid fa-globe stat-icon"></i>
          <span> Breaking Cycles International</span>
       </div>
@@ -45,10 +45,10 @@
      <button class="menu-toggle" id="mobileToggle" aria-label="Open Menu">
       <i class="fa-solid fa-bars stat-icon"></i>
      </button>
-     </header>
+    </header>
 
-     <!-- Mobile Navigation -->
-   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <button class="close-menu" id="closeMenu" aria-label="Close menu">
          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
@@ -62,125 +62,93 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="catfact.html">View Cat Facts</a></li>
         </ul>
-     </nav>
+    </nav>
 
-     <main>
-        <!-- Hero Section-->
+    <main>
+        <!-- HERO -->
         <section class="about-hero">
-            <div class="hero-shape shape1"></div>
-            <div class="hero-shape shape2"></div>
-            <h1>Resources to Help You Break Cycles</h1>
-            <p>Whether you're seeking support, healing, or a fresh start, these resources are here to guide you forward.</p>
+            <h1>Stories That Break Cycles</h1>
+            <p>Listen, watch, and experience real moments of change.</p>
         </section>
 
-        <!-- Resource Section -->
-        <section class="resources-section">
-            <h2>Support Resources</h2>
-            <div class="resources-grid">
-                <div class="resource-card" onclick="toggleCard(this)">
-                    <i class="fa-solid fa-hand-holding-heart resource-icon"></i>
-                    <h3>Community Outreach</h3>
-                    <p>Access food banks, housing assistance, and emergency support programs
-                    that meet immediate needs in your community.</p>
+        <!-- PROBLEM SECTION -->
+        <section class="story-section dark">
+            <h2 class="reveal">The Weight We Carry</h2>
+            <p class="reveal">
+            Some cycles are passed down silently—patterns of pain, survival, and silence.
+            For many, it becomes normal. Repeated. Unquestioned.
+            </p>
+        </section>
 
-                  <div class="more-info">
-                     <ul>
-                        <li>Food banks & meal programs</li>
-                        <li>Emergency housing support</li>
-                        <li>Financial assistance resources</li>
-                     </ul>
-                  </div>  
-                </div>
+        <!-- SVG CHAIN ANIMATION -->
+        <section class="chain-section">
+            <h2 class="reveal">Breaking the Cycle</h2>
 
-                <div class="resource-card" onclick="toggleCard(this)">
-                    <i class="fa-solid fa-people-group resource-icon"></i>
-                    <h3>Mentorship & Growth</h3>
-                    <p>Find mentorship programs and personal development resources that
-                    provide guidance, accountability, and encouragement.</p>
+            <svg viewBox="0 0 500 120" class="chain-svg" aria-label="Chain breaking animation symbolizing transformation">
+            <g class="chain-left">
+                <rect x="20" y="40" width="60" height="30" rx="15"/>
+                <rect x="90" y="40" width="60" height="30" rx="15"/>
+                <rect x="160" y="40" width="60" height="30" rx="15"/>
+            </g>
 
-                  <div class="more-info">
-                     <ul>
-                        <li>1-on-1 mentoring</li>
-                        <li>Life coaching</li>
-                        <li>Accountability groups</li>
-                     </ul>
-                  </div>                    
-                </div>
+            <g class="chain-right">
+                <rect x="280" y="40" width="60" height="30" rx="15"/>
+                <rect x="350" y="40" width="60" height="30" rx="15"/>
+                <rect x="420" y="40" width="60" height="30" rx="15"/>
+            </g>
+            </svg>
 
-                <div class="resource-card" onclick="toggleCard(this)">
-                    <i class="fa-solid fa-graduation-cap resource-icon"></i>
-                    <h3>Education & Career</h3>
-                    <p>Explore GED programs, job training, and career-building tools
-                    designed to help you create long-term stability.</p>
+            <div class="light-burst"></div>
+            <p class="reveal">This moment represents choosing something different.</p>
+        </section>
 
-                  <div class="more-info">
-                     <ul>
-                        <li>GED prep and testing support</li>
-                        <li>Job training & certification programs</li>
-                        <li>College and trade school guidance</li>
-                     </ul>
-                  </div>                    
-                </div>
+        <!-- VIDEO SECTION -->
+        <section class="video-section reveal">
+            <h2>A New Path Forward</h2>
 
-                <div class="resource-card" onclick="toggleCard(this)">
-                    <i class="fa-solid fa-house-chimney resource-icon"></i>
-                    <h3>Family Support</h3>
-                    <p>Strengthen your home with parenting resources, counseling services,
-                    and family support programs.</p>
+            <div class="video-wrapper">
+            <video controls poster="images/video-thumbnail.jpg" aria-label="Video about healing and breaking cycles">
+                <source src="images/Media Page Vid.mp4" type="video/mp4">
+            </video>
+            </div>
 
-                  <div class="more-info">
-                     <ul>
-                        <li>Housing stability and emergency family assistance</li>
-                        <li>Child development and early learning resources</li>
-                        <li>Mental health and emotional wellness support</li>
-                     </ul>
-                  </div>                    
-                </div>
+            <p class="media-caption">
+            Breaking cycles begins with awareness, courage, and support.
+            </p>
 
+            <p class="transcript">
+            Transcript: Breaking cycles isn’t easy. It takes courage to face what’s been carried for generations...
+            </p>
+        </section>
+
+        <!-- AUDIO SECTION -->
+        <section class="audio-section">
+            <h2 class="reveal">Take a Moment</h2>
+
+            <div class="audio-card">
+            <audio controls aria-label="Calming reflection audio">
+                <source src="images/your-audio.mp3" type="audio/mpeg">
+            </audio>
+
+            <p>
+                A moment to reflect, heal, and begin again.
+            </p>
             </div>
         </section>
 
-        <section class="resources-split">
-            <div class="resources-text">
-               <h2>Support That Meets You Where You Are</h2>
-               <p>
-                  At Breaking Cycles, we provide resources designed to uplift individuals and families 
-                  through every stage of their journey. Whether you need mentorship, educational support, 
-                  or guidance for your family, we are here to walk alongside you.
-               </p>
-               <p>
-                  Our programs are rooted in compassion, growth, and real transformation—because no one 
-                  should have to break cycles alone.
-               </p>
-               <a href="services.html" class="resources-btn">Explore Services</a>
-            </div>
-
-            <div class="resources-image">
-               <img src="images/resource_img1.png" alt="Community mentorship and support session">
-            </div>
-         </section>
-
-        <!-- Crisis Section -->
-        <section class="crisis-section">
-            <h2>Immediate Help</h2>
-            <p>If you are in crisis or need urgent support, please use the resources below:</p>
-            <ul>
-                <li>Call or text <strong>988</strong> – Suicide & Crisis Lifeline</li>
-                <li>Domestic Violence Hotline: <strong>1-800-799-7233</strong></li>
-                <li>Emergency: <strong>911</strong></li>
-            </ul>
+        <!-- FINAL SECTION -->
+        <section class="story-section light">
+            <h2>A New Story Begins</h2>
+            <p>
+            Your story doesn’t have to repeat itself.  
+            Breaking cycles isn’t just about ending something—  
+            it’s about creating something better.
+            </p>
         </section>
+    </main>
 
-        <section class="resources-cta">
-            <h2>Need More Support?</h2>
-            <p>Our team is here to help connect you with the right resources and walk
-            alongside you on your journey.</p>
-            <a href="contact.html" class="btn primary">Contact Us</a>
-        </section>
-     </main>
-
-     <!-- Footer -->
-     <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="site-footer">
       <div class="footer-grid">
          <!-- Column 1 -->
          <div class="footer-column1">
@@ -232,8 +200,9 @@
       <div class="footer-bottom">
          <p>&copy; 2026 Gianina Lecar | ITD 210</p>
       </div>
-     </footer> 
-     <script>
+    </footer> 
+
+    <script>
       const toggleBtn = document.getElementById("mobileToggle");
       const mobileNav = document.getElementById("mobileNav");
       const closeBtn = document.getElementById("closeMenu");
@@ -253,9 +222,49 @@
          });
       });
 
-         function toggleCard(card) {
+        function toggleCard(card) {
          card.classList.toggle("active");
-         }
-      </script>    
+        }
+
+        // Reveals elements when scrolling into view
+        const reveals = document.querySelectorAll('.reveal');
+
+        window.addEventListener('scroll', () => {
+        reveals.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) {
+            el.classList.add('active');
+            }
+        });
+        });
+
+        // Adds media controls
+        function showMedia(type) {
+        const sections = document.querySelectorAll('.media-content');
+
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        document.getElementById(type).style.display = 'block';
+        }
+
+        // Trigger chain animation + light burst on scroll
+        const chainSVG = document.querySelector('.chain-svg');
+        const burst = document.querySelector('.light-burst');
+
+        window.addEventListener('scroll', () => {
+        const top = chainSVG.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 100) {
+            chainSVG.classList.add('active');
+
+            // trigger burst slightly after chain starts
+            setTimeout(() => {
+            burst.classList.add('active');
+            }, 600);
+        }
+        });
+    </script>    
 </body>
 </html>

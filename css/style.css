@@ -1,7 +1,7 @@
 :root{
 
 /* Color palette */
---primary-blue:#03306a;
+--primary-blue:#032f68;
 --primary-red:#8B1E1E;
 --light-gray:#f5f5f5;
 --text-dark:#2B2B2B;
@@ -438,7 +438,7 @@ Prompt summary: Asked how to prevent scroll-section images from appearing too la
   scroll-snap-align: start;
   display: block;
 }
-/* -----    ABOUT PAGE    ------ */
+/* ----------------    ABOUT PAGE    --------------- */
 
 /* -- About Hero -- */
 .about-hero {
@@ -763,7 +763,7 @@ font-size:.95rem;
     color: var(--primary-blue);
 }
 
-/* ------- RESOURCES PAGE ------- */
+/* ----------------- RESOURCES PAGE ----------------- */
 
 .resources-section {
     padding: var(--space-lg) var(--space-md);
@@ -1042,7 +1042,7 @@ font-size:.95rem;
     margin-top: 1.5rem;
 }
 
-/* --------- Gallery Page ---------*/
+/* ------------      Gallery Page      ------------*/
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1122,6 +1122,187 @@ font-size:.95rem;
 
 .lightbox img {
   max-width: 90%;
+}
+
+/* -----------        Media Page        ----------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal p, h2 {
+    color: #4D9AFF;
+}
+
+/* ----------- STORY SECTIONS ----------- */
+.story-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.story-section.dark {
+  background: #000;
+  color: white;
+}
+
+.story-section.light {
+  background: #000;
+  color: white;
+}
+
+/* ----------- CHAIN SVG ----------- */
+.chain-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #111;
+  color: white;
+}
+
+.chain-svg {
+  width: 100%;
+  max-width: 1300px;
+  margin: 2rem auto;
+}
+
+.chain-svg rect {
+  fill: none;
+  stroke: white;
+  stroke-width: 8;
+}
+
+/* chain animation */
+.chain-svg.active .chain-left {
+  animation: slideLeft 1.5s ease forwards;
+}
+
+.chain-svg.active .chain-right {
+  animation: slideRight 1.5s ease forwards;
+}
+
+/* Initially hidden animation state */
+.chain-left,
+.chain-right {
+  opacity: 0;
+}
+
+.light-burst {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: -120px auto 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8), transparent 70%);
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* activate burst */
+.light-burst.active {
+  animation: burst 1s ease-out forwards;
+}
+
+@keyframes burst {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ----------- VIDEO ----------- */
+.video-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #111;
+  color: white;
+}
+
+.video-wrapper {
+  max-width: 700px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+video {
+  width: 100%;
+}
+
+.media-caption {
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+.transcript {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ----------- AUDIO ----------- */
+.audio-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(to top, #000, #03306a);
+  color: white;
+}
+
+.audio-card {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* ----------- INTERACTIONS ----------- */
+.video-wrapper:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
+
+.audio-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+}
+
+/* ----------- ACCESSIBILITY ----------- */
+button:focus {
+  outline: 3px solid #ffffff;
+}
+
+video, audio {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ----------- REDUCED MOTION ----------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+    transition: none;
+  }
 }
 
 /* -------   Footer   ------- */
