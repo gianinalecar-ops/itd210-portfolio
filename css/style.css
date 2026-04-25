@@ -1263,7 +1263,7 @@ video {
 .audio-section {
   padding: 4rem 2rem;
   text-align: center;
-  background: linear-gradient(to top, #000, #03306a);
+  background: linear-gradient(to top, #03306a, #03306a);
   color: white;
 }
 
@@ -1272,7 +1272,7 @@ video {
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 16px;
-  background: rgba(255,255,255,0.05);
+  background: #071734;
   backdrop-filter: blur(10px);
 }
 
