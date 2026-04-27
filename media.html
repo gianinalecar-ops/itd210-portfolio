@@ -12,7 +12,7 @@
       media-src 'self';
       connect-src 'self';
     ">
-    <title>Resources | Breaking Cycles International</title>
+    <title>Media | Breaking Cycles International</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
@@ -67,84 +67,97 @@
     <main>
         <!-- HERO -->
         <section class="about-hero">
+            <div class="hero-shape shape1"></div>
+            <div class="hero-shape shape2"></div>            
             <h1>Stories That Break Cycles</h1>
             <p>Listen, watch, and experience real moments of change.</p>
         </section>
 
-        <!-- PROBLEM SECTION -->
-        <section class="story-section dark">
-            <h2 class="reveal">The Weight We Carry</h2>
-            <p class="reveal">
-            Some cycles are passed down silently—patterns of pain, survival, and silence.
-            For many, it becomes normal. Repeated. Unquestioned.
-            </p>
-        </section>
+  <!-- Z SECTION 1 -->
+<section class="z-section">
+  <div class="z-text reveal">
+    <span class="eyebrow">The Problem</span>
+    <h2>The Weight We Carry</h2>
 
-        <!-- SVG CHAIN ANIMATION -->
-        <section class="chain-section">
-            <h2 class="reveal">Breaking the Cycle</h2>
+    <!-- Typewriter (same system as section 2) -->
+    <p class="typewriter"
+       data-text="Some cycles are passed down silently—patterns of pain, survival, and silence. For many, it becomes normal. Repeated. Unquestioned.">
+    </p>
+  </div>
 
-            <svg viewBox="0 0 500 120" class="chain-svg" aria-label="Chain breaking animation symbolizing transformation">
-            <g class="chain-left">
-                <rect x="20" y="40" width="60" height="30" rx="15"/>
-                <rect x="90" y="40" width="60" height="30" rx="15"/>
-                <rect x="160" y="40" width="60" height="30" rx="15"/>
-            </g>
+  <div class="z-visual reveal">
+    <div class="float-wrap">
+      <div class="float-obj">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <g class="chain-right">
-                <rect x="280" y="40" width="60" height="30" rx="15"/>
-                <rect x="350" y="40" width="60" height="30" rx="15"/>
-                <rect x="420" y="40" width="60" height="30" rx="15"/>
-            </g>
-            </svg>
 
-            <div class="light-burst"></div>
-            <p class="reveal">This moment represents choosing something different.</p>
-        </section>
+<!-- Z SECTION 2 -->
+<section class="z-section reverse">
+  <div class="z-text reveal">
+    <span class="eyebrow">Turning Point</span>
+    <h2>A New Path Forward</h2>
 
-        <!-- VIDEO SECTION -->
-        <section class="video-section reveal">
-            <h2>A New Path Forward</h2>
+    <p class="typewriter"
+       data-text="It doesn’t have to continue. What was passed down to you does not have to be passed on. You can choose something different.">
+    </p>
+  </div>
 
-            <div class="video-wrapper">
-            <video controls poster="images/video-thumbnail.jpg" aria-label="Video about healing and breaking cycles">
-                <source src="images/Media Page Vid.mp4" type="video/mp4">
-            </video>
-            </div>
+  <div class="z-visual reveal">
+    <div class="float-wrap">
+      <div class="float-obj">
+        <i class="fa-solid fa-seedling"></i>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <p class="media-caption">
-            Breaking cycles begins with awareness, courage, and support.
-            </p>
+  <!-- MEDIA CENTER -->
+  <section class="media-center" id="mediaCenter">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Interactive Experience</span>
+      <h2>Media Center</h2>
+      <p>Choose how you want to experience the story.</p>
+    </div>
 
-            <p class="transcript">
-            Transcript: Breaking cycles isn’t easy. It takes courage to face what’s been carried for generations...
-            </p>
-        </section>
+    <!-- JS-powered tabs for assignment interactive media control -->
+    <div class="media-tabs reveal">
+      <button class="media-tab active" data-tab="videoPanel">Watch</button>
+      <button class="media-tab" data-tab="transcriptPanel">Read</button>
+    </div>
 
-        <!-- AUDIO SECTION -->
-        <section class="audio-section">
-            <h2 class="reveal">Take a Moment</h2>
+    <div class="media-panel active" id="videoPanel">
+      <div class="video-wrapper">
+        <video controls poster="images/video-thumbnail.jpg" aria-label="Video about healing and breaking cycles">
+          <source src="images/Media Page Vid.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="media-caption">A short video about choosing healing and creating a new path.</p>
+    </div>
 
-            <div class="audio-card">
-            <audio controls aria-label="Calming reflection audio">
-                <source src="images/your-audio.mp3" type="audio/mpeg">
-            </audio>
+    <div class="media-panel transcript-box" id="transcriptPanel">
+      <h3>Transcript</h3>
+      <p>
+        Breaking cycles isn’t easy. It takes courage to face what’s been carried for generations.
+        But healing is possible. Through support. Through connection. Through choosing a new path.
+        You are not alone. Your story does not have to repeat itself.
+      </p>
+    </div>
+  </section>
 
-            <p>
-                A moment to reflect, heal, and begin again.
-            </p>
-            </div>
-        </section>
-
-        <!-- FINAL SECTION -->
-        <section class="story-section light">
-            <h2>A New Story Begins</h2>
-            <p>
-            Your story doesn’t have to repeat itself.  
-            Breaking cycles isn’t just about ending something—  
-            it’s about creating something better.
-            </p>
-        </section>
+  <!-- FINAL CALL TO ACTION -->
+  <section class="final-media-section reveal">
+    <h2>A New Story Begins</h2>
+    <p>
+      Breaking cycles is not just about ending something.
+      It is about creating something better in its place.
+    </p>
+    <a href="Contact.html" class="btn primary">Connect With Us</a>
+  </section>
+</main>
     </main>
 
     <!-- Footer -->
@@ -238,32 +251,45 @@
         });
         });
 
-        // Adds media controls
-        function showMedia(type) {
-        const sections = document.querySelectorAll('.media-content');
+        // Applies typewriter effect to ALL elements with .typewriter
+        const typewriters = document.querySelectorAll(".typewriter");
 
-        sections.forEach(section => {
-            section.style.display = 'none';
-        });
-
-        document.getElementById(type).style.display = 'block';
-        }
-
-        // Trigger chain animation + light burst on scroll
-        const chainSVG = document.querySelector('.chain-svg');
-        const burst = document.querySelector('.light-burst');
+        typewriters.forEach(element => {
+        const text = element.getAttribute("data-text");
+        let index = 0;
+        let started = false;
 
         window.addEventListener('scroll', () => {
-        const top = chainSVG.getBoundingClientRect().top;
+            const top = element.getBoundingClientRect().top;
 
-        if (top < window.innerHeight - 100) {
-            chainSVG.classList.add('active');
+            if (top < window.innerHeight - 100 && !started) {
+            started = true;
+            typeWriter();
+            }
+        });
 
-            // trigger burst slightly after chain starts
-            setTimeout(() => {
-            burst.classList.add('active');
-            }, 600);
+        function typeWriter() {
+            if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 40);
+            }
         }
+        });
+
+          // Media tabs let visitors choose between video, audio, and transcript.
+        // This satisfies the interactive media control requirement.
+        const mediaTabs = document.querySelectorAll(".media-tab");
+        const mediaPanels = document.querySelectorAll(".media-panel");
+
+        mediaTabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+            mediaTabs.forEach(button => button.classList.remove("active"));
+            mediaPanels.forEach(panel => panel.classList.remove("active"));
+
+            tab.classList.add("active");
+            document.getElementById(tab.dataset.tab).classList.add("active");
+            });
         });
     </script>    
 </body>

@@ -1137,164 +1137,219 @@ font-size:.95rem;
 }
 
 .reveal p, h2 {
-    color: #4D9AFF;
+    color: var(--primary-blue);
 }
 
-/* ----------- STORY SECTIONS ----------- */
-.story-section {
-  padding: 4rem 2rem;
-  text-align: center;
+/* ----------- Z PATTERN ----------- */
+.z-section {
+  padding: 5rem 2rem;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
 }
 
-.story-section.dark {
-  background: #000;
-  color: white;
-}
-
-.story-section.light {
-  background: #000;
-  color: white;
-}
-
-/* ----------- CHAIN SVG ----------- */
-.chain-section {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #111;
-  color: white;
-}
-
-.chain-svg {
-  width: 100%;
-  max-width: 1300px;
-  margin: 2rem auto;
-}
-
-.chain-svg rect {
-  fill: none;
-  stroke: white;
-  stroke-width: 8;
-}
-
-/* chain animation */
-.chain-svg.active .chain-left {
-  animation: slideLeft 1.5s ease forwards;
-}
-
-.chain-svg.active .chain-right {
-  animation: slideRight 1.5s ease forwards;
-}
-
-/* Initially hidden animation state */
-.chain-left,
-.chain-right {
-  opacity: 0;
-}
-
-.light-burst {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  margin: -120px auto 0;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.8), transparent 70%);
-  opacity: 0;
-  transform: scale(0.5);
-}
-
-/* activate burst */
-.light-burst.active {
-  animation: burst 1s ease-out forwards;
-}
-
-@keyframes burst {
-  0% {
-    opacity: 0.8;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(2.5);
-  }
-}
-
-@keyframes slideLeft {
-  from { transform: translateX(30px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideRight {
-  from { transform: translateX(-30px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-/* ----------- VIDEO ----------- */
-.video-section {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #111;
-  color: white;
-}
-
-.video-wrapper {
-  max-width: 700px;
-  margin: 2rem auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-video {
-  width: 100%;
-}
-
-.media-caption {
-  margin-top: 1rem;
-  opacity: 0.7;
-}
-
-.transcript {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-/* ----------- AUDIO ----------- */
-.audio-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: linear-gradient(to top, #03306a, #03306a);
-  color: white;
-}
-
-.audio-card {
-  max-width: 500px;
-  margin: 2rem auto;
+.z-text {
+  background: var(--white);
   padding: 2rem;
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.z-text h2 {
+  margin: 0.8rem 0;
+}
+
+/* ----------- TYPEWRITER ----------- */
+.typewriter {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+/* Fake cursor */
+.typewriter::after {
+  content: "|";
+  margin-left: 5px;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* ----------- FLOATING ICON CARD ----------- */
+.z-visual {
+  min-height: 260px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+  display: grid;
+  place-items: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Floating wrapper */
+.float-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Floating card */
+.float-obj {
+  width: 100px;
+  height: 100px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ffffff, #f5f5f5);
+  box-shadow: 0 30px 60px -10px rgba(0,0,0,0.35);
+  animation: levitate 3.5s ease-in-out infinite;
+  display: grid;
+  place-items: center;
+}
+
+/* Icon */
+.float-obj i {
+  font-size: 2.7rem;
+  color: var(--primary-blue);
+}
+
+/* Shadow */
+.float-wrap::after {
+  content: '';
+  width: 70px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0,0,0,.55), transparent 70%);
+  animation: shadowPulse 3.5s ease-in-out infinite;
+}
+
+/* Animation */
+@keyframes levitate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(4deg);
+  }
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: .7;
+  }
+  50% {
+    transform: scale(.6);
+    opacity: .35;
+  }
+}
+
+/* ----------- MEDIA CENTER ----------- */
+.media-center {
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+  text-align: center;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin: 0 auto 2rem;
+}
+
+.media-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.media-tab {
+  padding: 0.85rem 1.4rem;
+  border: 2px solid var(--primary-blue);
+  background: var(--white);
+  color: var(--primary-blue);
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.media-tab:hover,
+.media-tab:focus,
+.media-tab.active {
+  background: var(--primary-blue);
+  color: var(--white);
+  outline: 3px solid rgba(3, 47, 104, 0.25);
+}
+
+.media-panel {
+  display: none;
+  max-width: 850px;
+  margin: auto;
+}
+
+.media-panel.active {
+  display: block;
+}
+
+.transcript-box {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Keeps 1920x1080 video from cropping inside the Media Center */
+.media-panel .video-wrapper {
+  max-width: 900px;
+  width: 100%;
+  margin: 2rem auto;
+  aspect-ratio: 16 / 9;
   border-radius: 16px;
-  background: #071734;
-  backdrop-filter: blur(10px);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-/* ----------- INTERACTIONS ----------- */
-.video-wrapper:hover {
-  transform: scale(1.02);
-  transition: 0.3s ease;
+.media-panel .video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 16px;
 }
 
-.audio-card:hover {
-  transform: translateY(-5px);
-  transition: 0.3s ease;
+/* ----------- FINAL SECTION ----------- */
+.final-media-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: var(--primary-blue);
+  color: var(--light-gray);
 }
+
+.final-media-section h2 {
+  color: var(--light-gray);
+}
+
+.final-media-section p {
+  max-width: 600px;
+  margin: 1rem auto;
+  color: var(--light-gray);
+  margin-bottom: 3rem;
+}
+
 
 /* ----------- ACCESSIBILITY ----------- */
 button:focus {
   outline: 3px solid #ffffff;
 }
 
-video, audio {
+video {
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
 }
 
 /* ----------- REDUCED MOTION ----------- */
@@ -1302,6 +1357,11 @@ video, audio {
   * {
     animation: none;
     transition: none;
+  }
+
+    .float-obj,
+  .float-wrap::after {
+    animation: none;
   }
 }
 
@@ -1499,6 +1559,7 @@ When the screen is wider than 720px it changes the layout into 2 columns
   .resources-image img {
     height: 250px;
   }
+
 }
 
 /* -- DESKTOP RESPONSIVE
@@ -1543,6 +1604,31 @@ When the screen is larger than 980px the grid expands to 3 columns.
 
     .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+      .media-hero {
+    grid-template-columns: 1.2fr 0.8fr;
+    padding: 7rem 4rem;
+  }
+
+  .z-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .z-section.reverse .z-text {
+    order: 2;
+  }
+
+  .z-section.reverse .z-visual {
+    order: 1;
+  }
+
+  .desktop-nav {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: none;
   }
 }
 
