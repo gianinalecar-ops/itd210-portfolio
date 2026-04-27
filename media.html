@@ -118,7 +118,9 @@
         </div>
         </section>
 
-        <!-- MEDIA CENTER: Allows users to switch between video, audio, and text and encourages engagement and gives users control over how they consume the media.-->
+        <!-- MEDIA CENTER: This section gives users control over how they experience the story.
+        They can switch between video, audio, and transcript using JS tabs. This improves accessibility and engagement.-->
+        
         <section class="media-center" id="mediaCenter">
             <div class="section-heading reveal">
             <span class="eyebrow">Interactive Experience</span>
@@ -128,12 +130,12 @@
 
             <!-- JS-powered tabs for assignment interactive media control -->
             <div class="media-tabs reveal">
-            <button class="media-tab active" data-tab="videoPanel" aria-selected="true" tabindex="0">Watch</button>
-            <button class="media-tab" data-tab="audioPanel" aria-selected="true" tabindex="0">Listen</button>      
-            <button class="media-tab" data-tab="transcriptPanel" aria-selected="true" tabindex="0">Read</button>
+            <button class="media-tab active" role="tab" data-tab="videoPanel" aria-selected="true" tabindex="0">Watch</button>
+            <button class="media-tab" role="tab" data-tab="audioPanel" aria-selected="false" tabindex="0">Listen</button>      
+            <button class="media-tab" role="tab" data-tab="transcriptPanel" aria-selected="false" tabindex="0">Read</button>
             </div>
 
-            <div class="media-panel" id="audioPanel">
+            <div class="media-panel" id="audioPanel" role="region" aria-label="Audio content">
             <div class="audio-card">
                 <audio controls aria-label="Calming reflection audio">
                 <source src="images/media_page_audio.m4a" type="audio/mp4">
@@ -142,13 +144,13 @@
             </div>
             </div>    
 
-            <div class="media-panel active" id="videoPanel">
+            <div class="media-panel active" id="videoPanel" role="region" aria-label="Video content">
             <div class="video-wrapper">
                 <video controls poster="images/video-thumbnail.jpg" aria-label="Video about healing and breaking cycles">
                 <source src="images/media_page_vid.mp4" type="video/mp4">
                 </video>
             </div>
-            <p class="media-caption">A short video about choosing healing and creating a new path.</p>
+            <track kind="captions" src="captions.vtt" srclang="en" label="English captions">
             </div>
 
             <div class="media-panel transcript-box" id="transcriptPanel" role="region" aria-label="Transcript for video and audio content">
