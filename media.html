@@ -73,91 +73,104 @@
             <p>Listen, watch, and experience real moments of change.</p>
         </section>
 
-  <!-- Z SECTION 1 -->
-<section class="z-section">
-  <div class="z-text reveal">
-    <span class="eyebrow">The Problem</span>
-    <h2>The Weight We Carry</h2>
+        <!-- Z-PATTERN SECTION: Guides user attention visually in a natural reading flow.-->
 
-    <!-- Typewriter (same system as section 2) -->
-    <p class="typewriter"
-       data-text="Some cycles are passed down silently—patterns of pain, survival, and silence. For many, it becomes normal. Repeated. Unquestioned.">
-    </p>
-  </div>
+        <!-- Z SECTION 1 -->
+        <section class="z-section">
+        <div class="z-text reveal">
+            <span class="eyebrow">The Problem</span>
+            <h2>The Weight We Carry</h2>
 
-  <div class="z-visual reveal">
-    <div class="float-wrap">
-      <div class="float-obj">
-        <i class="fa-solid fa-hand-holding-heart"></i>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- Typewriter Effect -->
+            <p class="typewriter"
+            data-text="Some cycles are passed down silently—patterns of pain, survival, and silence. For many, it becomes normal. Repeated. Unquestioned.">
+            </p>
+        </div>
+
+        <div class="z-visual reveal">
+            <div class="float-wrap">
+            <div class="float-obj">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            </div>
+        </div>
+        </section>
 
 
-<!-- Z SECTION 2 -->
-<section class="z-section reverse">
-  <div class="z-text reveal">
-    <span class="eyebrow">Turning Point</span>
-    <h2>A New Path Forward</h2>
+        <!-- Z SECTION 2 -->
+        <section class="z-section reverse">
+        <div class="z-text reveal">
+            <span class="eyebrow">Turning Point</span>
+            <h2>A New Path Forward</h2>
 
-    <p class="typewriter"
-       data-text="It doesn’t have to continue. What was passed down to you does not have to be passed on. You can choose something different.">
-    </p>
-  </div>
+            <!-- Typewriter Effect -->
+            <p class="typewriter"
+            data-text="It doesn’t have to continue. What was passed down to you does not have to be passed on. You can choose something different.">
+            </p>
+        </div>
 
-  <div class="z-visual reveal">
-    <div class="float-wrap">
-      <div class="float-obj">
-        <i class="fa-solid fa-seedling"></i>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="z-visual reveal">
+            <div class="float-wrap">
+            <div class="float-obj">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+            </div>
+        </div>
+        </section>
 
-  <!-- MEDIA CENTER -->
-  <section class="media-center" id="mediaCenter">
-    <div class="section-heading reveal">
-      <span class="eyebrow">Interactive Experience</span>
-      <h2>Media Center</h2>
-      <p>Choose how you want to experience the story.</p>
-    </div>
+        <!-- MEDIA CENTER: Allows users to switch between video, audio, and text and encourages engagement and gives users control over how they consume the media.-->
+        <section class="media-center" id="mediaCenter">
+            <div class="section-heading reveal">
+            <span class="eyebrow">Interactive Experience</span>
+            <h2>Media Center</h2>
+            <p>Choose how you want to experience the story.</p>
+            </div>
 
-    <!-- JS-powered tabs for assignment interactive media control -->
-    <div class="media-tabs reveal">
-      <button class="media-tab active" data-tab="videoPanel">Watch</button>
-      <button class="media-tab" data-tab="transcriptPanel">Read</button>
-    </div>
+            <!-- JS-powered tabs for assignment interactive media control -->
+            <div class="media-tabs reveal">
+            <button class="media-tab active" data-tab="videoPanel" aria-selected="true" tabindex="0">Watch</button>
+            <button class="media-tab" data-tab="audioPanel" aria-selected="true" tabindex="0">Listen</button>      
+            <button class="media-tab" data-tab="transcriptPanel" aria-selected="true" tabindex="0">Read</button>
+            </div>
 
-    <div class="media-panel active" id="videoPanel">
-      <div class="video-wrapper">
-        <video controls poster="images/video-thumbnail.jpg" aria-label="Video about healing and breaking cycles">
-          <source src="images/Media Page Vid.mp4" type="video/mp4">
-        </video>
-      </div>
-      <p class="media-caption">A short video about choosing healing and creating a new path.</p>
-    </div>
+            <div class="media-panel" id="audioPanel">
+            <div class="audio-card">
+                <audio controls aria-label="Calming reflection audio">
+                <source src="images/media_page_audio.m4a" type="audio/mp4">
+                </audio>
+                <p>Listen slowly. This audio matches the video and is meant to support self-reflection.</p>
+            </div>
+            </div>    
 
-    <div class="media-panel transcript-box" id="transcriptPanel">
-      <h3>Transcript</h3>
-      <p>
-        Breaking cycles isn’t easy. It takes courage to face what’s been carried for generations.
-        But healing is possible. Through support. Through connection. Through choosing a new path.
-        You are not alone. Your story does not have to repeat itself.
-      </p>
-    </div>
-  </section>
+            <div class="media-panel active" id="videoPanel">
+            <div class="video-wrapper">
+                <video controls poster="images/video-thumbnail.jpg" aria-label="Video about healing and breaking cycles">
+                <source src="images/media_page_vid.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="media-caption">A short video about choosing healing and creating a new path.</p>
+            </div>
 
-  <!-- FINAL CALL TO ACTION -->
-  <section class="final-media-section reveal">
-    <h2>A New Story Begins</h2>
-    <p>
-      Breaking cycles is not just about ending something.
-      It is about creating something better in its place.
-    </p>
-    <a href="Contact.html" class="btn primary">Connect With Us</a>
-  </section>
-</main>
+            <div class="media-panel transcript-box" id="transcriptPanel" role="region" aria-label="Transcript for video and audio content">
+            <h3>Transcript</h3>
+            <p>
+                Breaking cycles isn’t easy. It takes courage to face what’s been carried for generations.
+                But healing is possible. Through support. Through connection. Through choosing a new path.
+                You are not alone. Your story does not have to repeat itself.
+            </p>
+            </div>
+        </section>
+
+        <!-- FINAL CALL TO ACTION -->
+        <section class="final-media-section reveal">
+            <h2>A New Story Begins</h2>
+            <p>
+            Breaking cycles is not just about ending something.
+            It is about creating something better in its place.
+            </p>
+            <a href="contact.html" class="btn primary">Connect With Us</a>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -239,7 +252,7 @@
          card.classList.toggle("active");
         }
 
-        // Reveals elements when scrolling into view
+        // Reveals elements when scrolling into view and guides attention and creates a more dynamic, immersive reading experience.
         const reveals = document.querySelectorAll('.reveal');
 
         window.addEventListener('scroll', () => {
@@ -252,6 +265,7 @@
         });
 
         // Applies typewriter effect to ALL elements with .typewriter
+        // Creates emphasis and draws attention to key storytelling moment.
         const typewriters = document.querySelectorAll(".typewriter");
 
         typewriters.forEach(element => {
@@ -282,14 +296,23 @@
         const mediaTabs = document.querySelectorAll(".media-tab");
         const mediaPanels = document.querySelectorAll(".media-panel");
 
-        mediaTabs.forEach(tab => {
-            tab.addEventListener("click", () => {
-            mediaTabs.forEach(button => button.classList.remove("active"));
-            mediaPanels.forEach(panel => panel.classList.remove("active"));
+        function activateTab(tab) {
+        mediaTabs.forEach(button => button.classList.remove("active"));
+        mediaPanels.forEach(panel => panel.classList.remove("active"));
 
-            tab.classList.add("active");
-            document.getElementById(tab.dataset.tab).classList.add("active");
-            });
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+        }
+
+        mediaTabs.forEach(tab => {
+        tab.addEventListener("click", () => activateTab(tab));
+
+        tab.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            activateTab(tab);
+            }
+        });
         });
     </script>    
 </body>
