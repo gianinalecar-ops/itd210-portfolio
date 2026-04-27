@@ -27,6 +27,50 @@ This milestone adds a fully responsive gallery page with:
 
 This page improves interactivity and visual storytelling compared to previous milestones.
 
+# Milestone 4 — Media Page
+Name: Gianina Lecar
+
+## Features
+
+### Video
+- HTML5 video with native controls and poster image
+- Responsive layout (16:9 aspect ratio)
+- Accessible via `aria-label`
+
+### Audio
+- HTML5 audio player with controls
+- Includes supportive context description
+- Fully keyboard accessible
+
+### Transcript
+- Full text alternative for audio/video content
+- Placed in a dedicated tab for easy access
+- Improves accessibility for all users
+
+### Interactive Media Tabs
+- JavaScript-powered switching between video, audio, and transcript
+- Keyboard support (Enter / Space)
+- Visual active state feedback
+
+### Animations
+- Scroll reveal animations for content flow
+- Typewriter effect for storytelling emphasis
+- Floating icon animation for visual engagement
+
+
+## Accessibility
+- Semantic HTML structure
+- Alt text for all media
+- ARIA labels for media and navigation
+- Keyboard navigable interface
+- Reduced motion support
+
+
+## JavaScript Features
+- Mobile navigation toggle
+- Scroll reveal system
+- Typewriter text animation
+- Media tab switching system
 
 ### Author
 Gianina Lecar
