@@ -502,44 +502,89 @@ Prompt summary: Asked how to prevent scroll-section images from appearing too la
     right:-100px;
 }
 
-/* -- About Mission Section -- */
-.about-mission {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    padding: 5rem 2rem;
-}
-
-.mission-text {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    max-width: 800px;
-    margin: 2rem auto 0;
-    line-height: 1.6;
-}
-
-.highlight {
-    color: #8B1E1E;
-    font-weight: 700;
-}
-
+/* -- Intro Section -- */
 .about-intro {
-  max-width: 850px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 8rem 2rem;
   text-align: center;
 }
 
-.eyebrow {
+.about-intro .eyebrow {
+  display: block;
   color: var(--primary-red);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-intro h2 {
+  margin-bottom: 1rem;
 }
 
 .about-intro p {
-  margin-top: 1rem;
   font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+/* -- About Mission Section -- */
+.about-mission {
+  padding: 5rem 2rem;
+  background:
+    linear-gradient(rgba(3, 47, 104, 0.8), rgba(3, 47, 104, 0.8)),
+    url("../images/group_pic.png") center/cover;
+}
+
+.mission-card {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+.mission-card .eyebrow {
+  display: block;
+  color: var(--primary-red);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+
+.mission-card h2 {
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-blue);
+}
+
+.mission-card p {
+  max-width: 600px;
+  margin: 1rem auto 0;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+.mission-pill-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.mission-pill-row span {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: var(--primary-red);
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
 }
 
 /* 
@@ -549,14 +594,13 @@ On mobile they stack vertically, but horizontally on larger screen.
 */
 
 .team-section {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
-  border-radius: 12px;
 }
 
 .team-section {
   padding: 5rem 2rem;
-  background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+  background: linear-gradient(to bottom, #dddddd, #ffffff);
 }
 
 .team-section h2 {
@@ -746,20 +790,6 @@ On mobile they stack vertically, but horizontally on larger screen.
 
 .about-mission {
   position: relative;
-}
-
-.about-mission::before {
-  content: "";
-  position: absolute;
-  width: 110%;
-  height: 300px;
-  background: #8B1E1E;
-  bottom: 240px;
-  left: -10%;
-  transform: rotate(-4deg);
-  opacity: 0.05;
-  z-index: 0;
-  overflow: hidden;
 }
 
 .about-story {
