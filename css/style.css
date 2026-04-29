@@ -522,17 +522,62 @@ Prompt summary: Asked how to prevent scroll-section images from appearing too la
     font-weight: 700;
 }
 
+.about-intro {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--primary-red);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+}
+
+.about-intro p {
+  margin-top: 1rem;
+  font-size: var(--fs-body);
+}
+
 /* 
 TEAM GRID 
 CSS Grid is used to create a responsive layout for my team cards.
 On mobile they stack vertically, but horizontally on larger screen.
 */
 
+.team-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.team-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+}
+
+.team-section h2 {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.team-section::before {
+  content: "Meet the people guiding the mission forward.";
+  display: block;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  color: var(--text-dark);
+  font-size: var(--fs-body);
+}
+
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
-  align-items: stretch;
 }
 
 .team-card {
@@ -575,7 +620,7 @@ On mobile they stack vertically, but horizontally on larger screen.
 
 .card-info {
   padding: 1.25rem;
-  background: linear-gradient(135deg, #032f68, #8B1E1E);
+  background: var(--primary-red);
   color: white;
 }
 
@@ -630,6 +675,7 @@ On mobile they stack vertically, but horizontally on larger screen.
 .card-back li {
   margin-bottom: 0.4rem;
 }
+
 
 /* -- About Story Grid --*/
 .story-grid {
