@@ -62,32 +62,6 @@
     </nav> 
     <main></main>
 
-    <script>
-      // AI Assistance Citation
-      // Tool: ChatGPT
-      // Date: 2026-02-03
-      // Where used: JavaScript for mobile hamburger menu toggle
-      // What AI did: Suggested a simple JavaScript solution to toggle a CSS class that opens and closes the slide-in mobile navigation menu when the hamburger button is tapped.
-      // What I did: Implemented the script, connected it to my HTML elements by ID, and tested the interaction to ensure the menu opens and closes correctly on mobile devices.
-      // Prompt summary: Asked how to make a hamburger menu open and close a slide-in mobile navigation menu.
-      const toggleBtn = document.getElementById("mobileToggle");
-      const mobileNav = document.getElementById("mobileNav");
-      const closeBtn = document.getElementById("closeMenu");
-      const mobileLinks = mobileNav.querySelectorAll("a");
-      
-      closeBtn.addEventListener("click", () => {
-      mobileNav.classList.remove("open");
-      });
-
-      toggleBtn.addEventListener("click", () => {
-         mobileNav.classList.toggle("open");
-      });
-
-      mobileLinks.forEach(link => {
-         link.addEventListener("click", () => {
-            mobileNav.classList.remove("open");
-         });
-      });
-    </script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

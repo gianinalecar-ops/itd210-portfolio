@@ -231,29 +231,6 @@
          <p>&copy; 2026 Gianina Lecar | ITD 210</p>
       </div>
      </footer> 
-     <script>
-      const toggleBtn = document.getElementById("mobileToggle");
-      const mobileNav = document.getElementById("mobileNav");
-      const closeBtn = document.getElementById("closeMenu");
-      const mobileLinks = mobileNav.querySelectorAll("a");
-      
-      closeBtn.addEventListener("click", () => {
-      mobileNav.classList.remove("open");
-      });
-
-      toggleBtn.addEventListener("click", () => {
-         mobileNav.classList.toggle("open");
-      });
-
-      mobileLinks.forEach(link => {
-         link.addEventListener("click", () => {
-            mobileNav.classList.remove("open");
-         });
-      });
-
-         function toggleCard(card) {
-         card.classList.toggle("active");
-         }
-      </script>    
+     <script src="js/script.js" defer></script>    
 </body>
 </html>
