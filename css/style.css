@@ -408,16 +408,35 @@ Prompt summary: Asked how to space and reverse my text and images to create a z 
   scroll-margin-top: 120px;
 }
 /* -- Scroll Images -- */
-.scroll-container{
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 16px;
-  background-color: #03306a;
+.scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
 
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+.scroll-container {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: auto-scroll 35s linear infinite;
+}
+
+.scroll-container img {
+  width: 320px;
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 1rem;
+}
+
+@keyframes auto-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* AI Assistance Citation
@@ -509,114 +528,107 @@ CSS Grid is used to create a responsive layout for my team cards.
 On mobile they stack vertically, but horizontally on larger screen.
 */
 
-.team-section{
-padding:4rem 2rem;
-text-align:center;
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
 }
 
-.team-grid{
-display:grid;
-grid-template-columns:1fr;
-gap:3rem;
-row-gap: 8rem;
-margin-top:3rem;
+.team-card {
+  perspective: 1000px;
+  min-height: 420px;
 }
 
-/* CARD CONTAINER */
-
-.team-card{
-perspective:1000px;
-height:345px;
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
 }
 
-/* DIRECTOR LARGER */
-
-.director{
-height:730px;
+.team-card:hover .card-inner,
+.team-card:focus-within .card-inner {
+  transform: rotateY(180deg);
 }
-
-/* INNER CARD */
-
-.card-inner{
-position:relative;
-width:100%;
-height:100%;
-transition:transform .7s ease;
-transform-style:preserve-3d;
-}
-
-/* FLIP EFFECT */
-
-.team-card:hover .card-inner{
-transform:rotateY(180deg);
-}
-
-/* CARD FACES */
 
 .card-front,
-.card-back{
-position:absolute;
-width:100%;
-height:100%;
-border-radius:14px;
-overflow:hidden;
-backface-visibility:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 1.25rem;
+  overflow: hidden;
 }
 
-/* CARD FRONT */
-
-.card-front img{
-width:100%;
-height:auto;
-object-fit:cover;
+.card-front img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 /* NAME OVERLAY */
 
-.card-info{
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-padding:1rem;
-background:rgba(0,0,0,.55);
-color:white;
-text-align:center;
+.card-info {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #032f68, #8B1E1E);
+  color: white;
 }
 
-.card-info h3{
-margin:0;
-font-size:1.2rem;
+.card-info h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.3rem;
 }
 
-.card-info p{
-margin:0;
-font-size:.9rem;
-opacity:.9;
+.card-info p {
+  font-size: 0.95rem;
+  opacity: 0.9;
 }
 
 /* CARD BACK */
-
-.card-back{
-background:#03306a;
-color:white;
-transform:rotateY(180deg);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:2rem;
+.card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(145deg, #032f68, #061b3a);
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.card-back h3{
-margin-bottom:1rem;
+.role-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.card-back p{
-line-height:1.6;
-font-size:.95rem;
+.card-back h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-back p {
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.card-back ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.card-back li {
+  margin-bottom: 0.4rem;
 }
 
 /* -- About Story Grid --*/
@@ -1568,12 +1580,12 @@ When the screen is wider than 720px it changes the layout into 2 columns
         padding:4rem 1.5rem;
     }
 
-    .team-grid{
-        grid-template-columns:repeat(2,1fr);
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .director{
-        grid-column:span 2;
+    .director {
+      grid-column: span 2;
     }
 
     .resources-grid {
@@ -1615,22 +1627,15 @@ When the screen is larger than 980px the grid expands to 3 columns.
         grid-template-columns:repeat(3,1fr);
     }
 
-    .team-grid{
-        grid-template-columns:repeat(4,1fr);
-        grid-auto-rows:260px;
-    }
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    .director{
-        grid-column:span 2;
-        grid-row:span 2;
-    }
-
-    .coordinator{
-        grid-column:span 2;
-    }
-
-    .mentor{
-        grid-column:span 1;
+    .director,
+    .coordinator,
+    .mentor {
+      grid-column: auto;
+      grid-row: auto;
     }
 
     .resources-grid {
