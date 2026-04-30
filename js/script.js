@@ -171,4 +171,85 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
     }
+
+    // FAQ accordion
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+      const question = item.querySelector(".faq-q");
+
+      question.addEventListener("click", () => {
+        const isOpen = item.classList.toggle("open");
+        question.setAttribute("aria-expanded", isOpen);
+      });
+    });
+
+    // Contact form validation before Formspree submits
+    const contactForm = document.getElementById("contactForm");
+    const messageField = document.getElementById("message");
+    const messageCounter = document.getElementById("messageCounter");
+    const formStatus = document.getElementById("formStatus");
+
+    function showError(id, message) {
+      document.getElementById(`${id}Error`).textContent = message;
+    }
+
+    function clearErrors() {
+      ["name", "email", "subject", "message"].forEach(id => {
+        document.getElementById(`${id}Error`).textContent = "";
+      });
+
+      formStatus.textContent = "";
+    }
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    if (messageField && messageCounter) {
+      messageField.addEventListener("input", () => {
+        messageCounter.textContent = `${messageField.value.trim().length} / 20 minimum characters`;
+      });
+    }
+
+    if (contactForm) {
+      contactForm.addEventListener("submit", event => {
+        clearErrors();
+
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const subject = document.getElementById("subject");
+        const message = document.getElementById("message");
+
+        let valid = true;
+
+        if (!name.value.trim()) {
+          showError("name", "Please enter your name.");
+          valid = false;
+        }
+
+        if (!email.value.trim()) {
+          showError("email", "Please enter your email.");
+          valid = false;
+        } else if (!isValidEmail(email.value.trim())) {
+          showError("email", "Please enter a valid email address.");
+          valid = false;
+        }
+
+        if (!subject.value) {
+          showError("subject", "Please choose a subject.");
+          valid = false;
+        }
+
+        if (message.value.trim().length < 20) {
+          showError("message", "Please write at least 20 characters.");
+          valid = false;
+        }
+
+        if (!valid) {
+          event.preventDefault();
+          formStatus.textContent = "Please fix the errors above before sending.";
+        }
+      });
+    }
 });

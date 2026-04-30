@@ -1488,6 +1488,127 @@ video, audio {
   }
 }
 
+/* ---------------   Contact Page   ---------------- */
+.contact-wrap {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.contact-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 4rem;
+}
+
+.contact-heading p {
+  margin-top: 1rem;
+  font-size: var(--fs-body);
+}
+
+.contact-two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.faq,
+.contact-form-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.faq h2,
+.contact-form-card h2 {
+  margin-bottom: 1.5rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.faq-q {
+  width: 100%;
+  padding: 1rem 0;
+  border: none;
+  background: transparent;
+  color: var(--primary-blue);
+  font: inherit;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq-q::after {
+  content: "+";
+  color: var(--primary-red);
+  font-weight: 800;
+}
+
+.faq-item.open .faq-q::after {
+  content: "−";
+}
+
+.faq-a {
+  display: none;
+  padding-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.faq-item.open .faq-a {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid #dddddd;
+  border-radius: 0.75rem;
+  font: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.faq-q:focus,
+.btn:focus {
+  outline: 3px solid rgba(139, 30, 30, 0.3);
+  border-color: var(--primary-red);
+}
+
+.error-message,
+.form-status {
+  color: #b00020;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 0.35rem;
+}
+
+.character-counter {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  color: #555;
+}
+
+
 /* -------   Footer   ------- */
 footer {
   background: var(--primary-red);
@@ -1620,44 +1741,45 @@ When the screen is wider than 720px it changes the layout into 2 columns
 }
 
 @media (min-width: 720px) {
-    .desktop-nav {
-        display: none;
-    }
-    .menu-toggle {
-        display: block;
-        font-size: 2rem;
-        color: #8B1E1E;
-        cursor: pointer;
-    }
+  .desktop-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: #8B1E1E;
+    cursor: pointer;
+  }
 
-    .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
-      text-align: left;
-    }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+  }
 
-    .footer-column1 {
-      text-align: left;
-    }
+  .footer-column1 {
+    text-align: left;
+  }
 
-    .social-icons {
-      justify-content: flex-start;
-    }
-    .cards {
-        grid-template-columns:repeat(2,1fr);
-    }
+  .social-icons {
+    justify-content: flex-start;
+  }
+
+  .cards {
+  grid-template-columns:repeat(2,1fr);
+  }
 
     .stat-layout {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
     .stats-row {
-        grid-template-columns:1fr 1fr;
-        text-align:left;
-        gap: 2rem;
+      grid-template-columns:1fr 1fr;
+      text-align:left;
+      gap: 2rem;
     }
     .stat-img {
-        height: auto;
+      height: auto;
         max-height: 260px;
-        object-fit: cover;
+      object-fit: cover;
     }
 
     /* AI Assistance Citation
@@ -1694,6 +1816,10 @@ When the screen is wider than 720px it changes the layout into 2 columns
 
     .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
+    }
+
+  .contact-wrap {
+    padding: 5rem 2rem;
   }
 
 }
@@ -1775,6 +1901,11 @@ When the screen is larger than 980px the grid expands to 3 columns.
   .menu-toggle {
     display: none;
   }
+
+  .contact-two-col {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }  
 }
 
 @media (prefers-reduced-motion: reduce) {
