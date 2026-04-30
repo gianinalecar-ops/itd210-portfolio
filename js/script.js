@@ -172,84 +172,141 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     }
 
-    // FAQ accordion
-    const faqItems = document.querySelectorAll(".faq-item");
+  // FAQ ACCORDION
+  // This opens and closes each FAQ item by adding/removing the .open class.
+  // The aria-expanded value also updates so screen readers know the answer is open or closed.
+  const faqButtons = document.querySelectorAll(".faq-q");
 
-    faqItems.forEach(item => {
-      const question = item.querySelector(".faq-q");
+  faqButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const faqItem = button.closest(".faq-item");
+      const isOpen = faqItem.classList.contains("open");
 
-      question.addEventListener("click", () => {
-        const isOpen = item.classList.toggle("open");
-        question.setAttribute("aria-expanded", isOpen);
-      });
+      faqItem.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(!isOpen));
+    });
+  });
+
+
+  // CONTACT FORM VALIDATION + SUCCESS CARD
+  // This block validates the contact form before it submits to Formspree.
+  // It also shows the success card if Formspree redirects back with ?success=true.
+
+  const contactForm = document.getElementById("contactForm");
+  const messageField = document.getElementById("message");
+  const messageCounter = document.getElementById("messageCounter");
+  const formStatus = document.getElementById("formStatus");
+  const successCard = document.getElementById("successCard");
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Checks if the email has a basic valid email format.
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // Shows an inline error message under the correct form field.
+  function showError(fieldId, message) {
+    const errorElement = document.getElementById(`${fieldId}Error`);
+    const field = document.getElementById(fieldId);
+
+    if (errorElement) {
+      errorElement.textContent = message;
+    }
+
+    if (field) {
+      field.classList.add("input-error");
+      field.setAttribute("aria-invalid", "true");
+    }
+  }
+
+  // Clears old error messages before checking the form again.
+  function clearErrors() {
+    const fields = ["name", "email", "subject", "message"];
+
+    fields.forEach(fieldId => {
+      const errorElement = document.getElementById(`${fieldId}Error`);
+      const field = document.getElementById(fieldId);
+
+      if (errorElement) {
+        errorElement.textContent = "";
+      }
+
+      if (field) {
+        field.classList.remove("input-error");
+        field.setAttribute("aria-invalid", "false");
+      }
     });
 
-    // Contact form validation before Formspree submits
-    const contactForm = document.getElementById("contactForm");
-    const messageField = document.getElementById("message");
-    const messageCounter = document.getElementById("messageCounter");
-    const formStatus = document.getElementById("formStatus");
-
-    function showError(id, message) {
-      document.getElementById(`${id}Error`).textContent = message;
-    }
-
-    function clearErrors() {
-      ["name", "email", "subject", "message"].forEach(id => {
-        document.getElementById(`${id}Error`).textContent = "";
-      });
-
+    if (formStatus) {
       formStatus.textContent = "";
     }
+  }
 
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    if (messageField && messageCounter) {
-      messageField.addEventListener("input", () => {
-        messageCounter.textContent = `${messageField.value.trim().length} / 20 minimum characters`;
-      });
-    }
-
+  // Shows the success card after Formspree redirects back to contact.html?success=true.
+  if (urlParams.get("success") === "true") {
     if (contactForm) {
-      contactForm.addEventListener("submit", event => {
-        clearErrors();
+      contactForm.hidden = true;
+    }
 
-        const name = document.getElementById("name");
-        const email = document.getElementById("email");
-        const subject = document.getElementById("subject");
-        const message = document.getElementById("message");
+    if (successCard) {
+      successCard.hidden = false;
+    }
+  }
 
-        let valid = true;
+  // Live character counter for the message textarea.
+  if (messageField && messageCounter) {
+    messageField.addEventListener("input", () => {
+      const count = messageField.value.trim().length;
+      messageCounter.textContent = `${count} / 20 minimum characters`;
+    });
+  }
 
-        if (!name.value.trim()) {
-          showError("name", "Please enter your name.");
-          valid = false;
-        }
+  // Validates the form before sending it to Formspree.
+  if (contactForm) {
+    contactForm.addEventListener("submit", event => {
+      clearErrors();
 
-        if (!email.value.trim()) {
-          showError("email", "Please enter your email.");
-          valid = false;
-        } else if (!isValidEmail(email.value.trim())) {
-          showError("email", "Please enter a valid email address.");
-          valid = false;
-        }
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const subject = document.getElementById("subject");
+      const message = document.getElementById("message");
 
-        if (!subject.value) {
-          showError("subject", "Please choose a subject.");
-          valid = false;
-        }
+      let isValid = true;
 
-        if (message.value.trim().length < 20) {
-          showError("message", "Please write at least 20 characters.");
-          valid = false;
-        }
+      if (!name.value.trim()) {
+        showError("name", "Please enter your name.");
+        isValid = false;
+      }
 
-        if (!valid) {
-          event.preventDefault();
+      if (!email.value.trim()) {
+        showError("email", "Please enter your email address.");
+        isValid = false;
+      } else if (!isValidEmail(email.value.trim())) {
+        showError("email", "Please enter a valid email address.");
+        isValid = false;
+      }
+
+      if (!subject.value) {
+        showError("subject", "Please choose a subject.");
+        isValid = false;
+      }
+
+      if (!message.value.trim()) {
+        showError("message", "Please enter a message.");
+        isValid = false;
+      } else if (message.value.trim().length < 20) {
+        showError("message", "Please write at least 20 characters.");
+        isValid = false;
+      }
+
+      // Stop Formspree only if the form is invalid.
+      if (!isValid) {
+        event.preventDefault();
+
+        if (formStatus) {
           formStatus.textContent = "Please fix the errors above before sending.";
         }
-      });
-    }
+      }
+    });
+  }
 });
