@@ -7,18 +7,30 @@ document.addEventListener("DOMContentLoaded", () => {
   if (toggleBtn && mobileNav && closeBtn) {
     const mobileLinks = mobileNav.querySelectorAll("a");
 
-    closeBtn.addEventListener("click", () => {
+    function openMenu() {
+      mobileNav.classList.remove("translate-x-full");
+      mobileNav.classList.add("translate-x-0");
+      mobileNav.classList.add("open");
+    }
+
+    function closeMenu() {
+      mobileNav.classList.add("translate-x-full");
+      mobileNav.classList.remove("translate-x-0");
       mobileNav.classList.remove("open");
-    });
+    }
 
     toggleBtn.addEventListener("click", () => {
-      mobileNav.classList.toggle("open");
+      if (mobileNav.classList.contains("translate-x-full")) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
     });
 
+    closeBtn.addEventListener("click", closeMenu);
+
     mobileLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        mobileNav.classList.remove("open");
-      });
+      link.addEventListener("click", closeMenu);
     });
   }
 
