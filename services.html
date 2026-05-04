@@ -48,6 +48,9 @@
      </header>
 
      <!-- Mobile Navigation -->
+     <!-- This menu is hidden off-screen by default and opens when the hamburger button is clicked.
+     The links match the desktop navigation so all pages work together consistently.
+     --> 
       <nav id="mobileNav" class="fixed top-0 right-0 w-64 h-full bg-blue-900 text-white transform translate-x-full transition duration-300 md:hidden">
 
       <div class="flex justify-end p-4">
@@ -77,6 +80,10 @@
        </section>
 
        <!-- Card Section -->
+       <!-- This section uses a responsive grid to display the main services in a
+        scannable layout. Each card has hover movement and shadow effects to make the
+        page feel interactive and visually engaging.
+       -->
        <section class="p-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-10">
          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1
         transition-all duration-300">
@@ -104,13 +111,17 @@
        </section>
 
        <!-- CTA Section -->
+       <!-- This section encourages visitors to take the next step after reading about the
+       services. It connects the Services page to the Contact page so users can get
+       involved, volunteer, donate, or ask questions.
+       -->
        <section class="text-center mt-16 bg-blue-900 text-white max-w-4xl mx-auto py-6 rounded-2xl">
          <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Get Involved</h2>
          <p class="mb-6 text-gray-200">Join us in making a difference. Whether you volunteer, donate, or partner with us, your support helps break cycles.</p>
 
          <div class="flex justify-center gap-4 flex-wrap">
-            <button class="bg-red-600 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition duration-300">Volunteer</button>
-            <button class="border border-white px-6 py-2 rounded-full hover:bg-white hover:text-blue-900 transition duration-300">Donate</button>
+            <button a href="contact.html" class="bg-red-600 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition duration-300">Volunteer</button>
+            <button a href="contact.html" class="border border-white px-6 py-2 rounded-full hover:bg-white hover:text-blue-900 transition duration-300">Donate</button>
          </div>
        </section>
 

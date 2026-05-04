@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Mobile nav
+  // This section opens and closes the mobile menu when visitors click the hamburger or close button. The code supports both my regular CSS menu and my Services page
+  //Tailwind menu by handling the "open" class and translate classes.
+  //This keeps my navigation working consistently across all pages.
   const toggleBtn = document.getElementById("mobileToggle");
   const mobileNav = document.getElementById("mobileNav");
   const closeBtn = document.getElementById("closeMenu");
@@ -7,12 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (toggleBtn && mobileNav && closeBtn) {
     const mobileLinks = mobileNav.querySelectorAll("a");
 
+    // Opens the mobile menu so phone and tablet users can access all page links.
     function openMenu() {
       mobileNav.classList.remove("translate-x-full");
       mobileNav.classList.add("translate-x-0");
       mobileNav.classList.add("open");
     }
 
+    // Closes the mobile menu after the user clicks the close button or selects a link.
+    // This keeps the screen from staying covered after navigation.
     function closeMenu() {
       mobileNav.classList.add("translate-x-full");
       mobileNav.classList.remove("translate-x-0");
@@ -33,6 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", closeMenu);
     });
   }
+
+  // SCROLL REVEAL ANIMATION
+  //This section watches for elements with the fade-in or reveal class and adds a
+  //visible class when they enter the screen. This creates motion as the visitor scrolls and helps the page feel more like a guided story instead of a static page.
 
   // Fade-in animations
   const fadeElements = document.querySelectorAll(".fade-in");
@@ -68,6 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Typewriter effect
+  // This section types out selected text one character at a time.
+  //The effect adds emotion and pacing to the Media page while supporting the story of breaking cycles and choosing a new path.
+
   const typewriters = document.querySelectorAll(".typewriter");
 
   typewriters.forEach(element => {
@@ -97,6 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Media tabs
+  // This section switches between video, audio, and transcript panels.
+  //Tabs give users control over how they experience the story, which improves both accessibility and engagement.
   const mediaTabs = document.querySelectorAll(".media-tab");
   const mediaPanels = document.querySelectorAll(".media-panel");
 
@@ -136,6 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Gallery filter + lightbox
+  // GALLERY FILTER BUTTONS
+  //This section lets users filter gallery images by category. It improves
+  //interactivity because visitors can choose what type of impact story they want to view.
     const filterButtons = document.querySelectorAll(".filters button");
     const galleryItems = document.querySelectorAll(".gallery-item");
     const lightbox = document.getElementById("lightbox");
@@ -156,6 +174,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     });
 
+    // GALLERY LIGHTBOX
+    //This section opens a larger version of a gallery image when a visitor clicks it.
+    //The close button and keyboard support make the image viewer easier and more
+    //accessible to use.
     if (lightbox && lightboxImg && closeLightbox) {
     galleryItems.forEach(item => {
         item.addEventListener("click", () => {
@@ -266,6 +288,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Live character counter for the message textarea.
+  //This section updates the message count as the user types.
+  //It helps visitors know when their message is long enough to submit and supports the minimum message length requirement.
   if (messageField && messageCounter) {
     messageField.addEventListener("input", () => {
       const count = messageField.value.trim().length;
@@ -274,6 +298,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Validates the form before sending it to Formspree.
+  //This section checks the form before sending it to Formspree.
+  //It verifies that required fields are filled in, the email format is valid, and the message has enough detail. Inline errors are shown beside each field so users
+  //know exactly what to fix without relying on browser alerts.
   if (contactForm) {
     contactForm.addEventListener("submit", event => {
       clearErrors();
