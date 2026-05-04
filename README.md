@@ -72,5 +72,36 @@ Name: Gianina Lecar
 - Typewriter text animation
 - Media tab switching system
 
+# Milestone 5 — Contact Page
+Name: Gianina Lecar
+
+## What’s New
+This milestone adds a responsive and accessible contact page for Breaking Cycles International. The page includes a Formspree-powered contact form, client-side JavaScript validation, inline error messages, a live message character counter, FAQ accordion, and a success confirmation state.
+
+## Features
+- Semantic contact form with name, email, subject, and message fields
+- Formspree integration
+- JavaScript validation for required fields, email format, and message length
+- Inline error messages near each field
+- Live character counter for the message box
+- FAQ accordion for quick visitor support
+- Success card after successful submission
+- Accessible labels, ARIA support, visible focus states, and reduced-motion support
+
+## JavaScript Features
+- Contact form validation
+- Inline error handling
+- Character counter
+- FAQ accordion toggle
+- Success state display after Formspree redirect
+
+## Accessibility
+- Visible labels
+- Required fields
+- `aria-live` form status
+- Keyboard-accessible buttons and form controls
+- Visible focus styles
+- Reduced-motion media query
+
 ### Author
 Gianina Lecar
