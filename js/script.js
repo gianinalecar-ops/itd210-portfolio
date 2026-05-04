@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile nav
-  // This section opens and closes the mobile menu when visitors click the hamburger or close button. The code supports both my regular CSS menu and my Services page
-  //Tailwind menu by handling the "open" class and translate classes.
-  //This keeps my navigation working consistently across all pages.
+  /* 
+  MOBILE NAVIGATION
+  This section opens and closes the mobile menu when visitors click the hamburger
+  or close button. It supports both the regular CSS mobile menu and the Services
+  page Tailwind menu by handling the "open" class and the translate classes.
+  This keeps navigation working consistently across all pages.
+  */
   const toggleBtn = document.getElementById("mobileToggle");
   const mobileNav = document.getElementById("mobileNav");
   const closeBtn = document.getElementById("closeMenu");
@@ -40,11 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // SCROLL REVEAL ANIMATION
-  //This section watches for elements with the fade-in or reveal class and adds a
-  //visible class when they enter the screen. This creates motion as the visitor scrolls and helps the page feel more like a guided story instead of a static page.
-
-  // Fade-in animations
+  /* 
+  SCROLL REVEAL ANIMATION
+  This section watches for elements with the .fade-in class and adds .visible
+  when they enter the screen. This creates gentle motion as the visitor scrolls
+  and helps the page feel more like a guided story instead of a static page.
+  */
   const fadeElements = document.querySelectorAll(".fade-in");
 
   if (fadeElements.length) {
@@ -57,17 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, { threshold: 0.2 });
 
-    fadeElements.forEach(el => observer.observe(el));
+    fadeElements.forEach(element => observer.observe(element));
   }
 
-  // Reveal animations
+  /* 
+  REVEAL ANIMATION
+  This section adds the .active class to elements with .reveal when they move
+  into view. It supports the visual storytelling sections on the Media page.
+  */
   const reveals = document.querySelectorAll(".reveal");
 
   function revealOnScroll() {
-    reveals.forEach(el => {
-      const top = el.getBoundingClientRect().top;
+    reveals.forEach(element => {
+      const top = element.getBoundingClientRect().top;
+
       if (top < window.innerHeight - 100) {
-        el.classList.add("active");
+        element.classList.add("active");
       }
     });
   }
@@ -77,14 +86,16 @@ document.addEventListener("DOMContentLoaded", () => {
     revealOnScroll();
   }
 
-  // Typewriter effect
-  // This section types out selected text one character at a time.
-  //The effect adds emotion and pacing to the Media page while supporting the story of breaking cycles and choosing a new path.
-
+  /* 
+  TYPEWRITER STORY EFFECT
+  This section types out selected text one character at a time.
+  The effect adds emotion and pacing to the Media page while supporting the story
+  of breaking cycles and choosing a new path.
+  */
   const typewriters = document.querySelectorAll(".typewriter");
 
   typewriters.forEach(element => {
-    const text = element.getAttribute("data-text");
+    const text = element.getAttribute("data-text") || "";
     let index = 0;
     let started = false;
 
@@ -109,9 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
     startTypewriter();
   });
 
-  // Media tabs
-  // This section switches between video, audio, and transcript panels.
-  //Tabs give users control over how they experience the story, which improves both accessibility and engagement.
+  /* 
+  MEDIA PAGE TABS
+  This section switches between video, audio, and transcript panels.
+  Tabs give users control over how they experience the story, which improves
+  both accessibility and engagement.
+  */
   const mediaTabs = document.querySelectorAll(".media-tab");
   const mediaPanels = document.querySelectorAll(".media-panel");
 
@@ -121,27 +135,38 @@ document.addEventListener("DOMContentLoaded", () => {
       button.setAttribute("aria-selected", "false");
     });
 
-    mediaPanels.forEach(panel => panel.classList.remove("active"));
+    mediaPanels.forEach(panel => {
+      panel.classList.remove("active");
+    });
 
     tab.classList.add("active");
     tab.setAttribute("aria-selected", "true");
 
     const panel = document.getElementById(tab.dataset.tab);
-    if (panel) panel.classList.add("active");
+
+    if (panel) {
+      panel.classList.add("active");
+    }
   }
 
-  mediaTabs.forEach(tab => {
-    tab.addEventListener("click", () => activateTab(tab));
+  if (mediaTabs.length && mediaPanels.length) {
+    mediaTabs.forEach(tab => {
+      tab.addEventListener("click", () => activateTab(tab));
 
-    tab.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        activateTab(tab);
-      }
+      tab.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          activateTab(tab);
+        }
+      });
     });
-  });
+  }
 
-  // Resource cards
+  /* 
+  RESOURCE CARD TOGGLE
+  This section lets visitors click a resource card to reveal more details.
+  The toggle makes the Resources page more interactive and keeps the layout clean.
+  */
   const resourceCards = document.querySelectorAll(".resource-card");
 
   resourceCards.forEach(card => {
@@ -150,70 +175,91 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Gallery filter + lightbox
-  // GALLERY FILTER BUTTONS
-  //This section lets users filter gallery images by category. It improves
-  //interactivity because visitors can choose what type of impact story they want to view.
-    const filterButtons = document.querySelectorAll(".filters button");
-    const galleryItems = document.querySelectorAll(".gallery-item");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.querySelector(".lightbox-img");
-    const closeLightbox = document.querySelector(".close");
+  /* 
+  GALLERY FILTER BUTTONS
+  This section lets users filter gallery images by category.
+  It improves interactivity because visitors can choose what type of impact story
+  they want to view.
+  */
+  const filterButtons = document.querySelectorAll(".filters button");
+  const galleryItems = document.querySelectorAll(".gallery-item");
 
+  if (filterButtons.length && galleryItems.length) {
     filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
+      button.addEventListener("click", () => {
         const filter = button.dataset.filter;
 
-        galleryItems.forEach(item => {
-        if (filter === "all" || item.dataset.category === filter) {
-            item.style.display = "block";
-        } else {
-            item.style.display = "none";
-        }
+        filterButtons.forEach(btn => {
+          btn.classList.remove("active");
         });
-    });
-    });
 
-    // GALLERY LIGHTBOX
-    //This section opens a larger version of a gallery image when a visitor clicks it.
-    //The close button and keyboard support make the image viewer easier and more
-    //accessible to use.
-    if (lightbox && lightboxImg && closeLightbox) {
+        button.classList.add("active");
+
+        galleryItems.forEach(item => {
+          if (filter === "all" || item.dataset.category === filter) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    });
+  }
+
+  /* 
+  GALLERY LIGHTBOX
+  This section opens a larger version of a gallery image when a visitor clicks it.
+  The close button, outside click, and Escape key support make the image viewer
+  easier and more accessible to use.
+  */
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.querySelector(".lightbox-img");
+  const closeLightbox = document.querySelector(".close");
+
+  if (lightbox && lightboxImg && closeLightbox && galleryItems.length) {
     galleryItems.forEach(item => {
-        item.addEventListener("click", () => {
+      item.addEventListener("click", () => {
         const img = item.querySelector("img");
 
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        });
+        if (img) {
+          lightbox.style.display = "flex";
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+        }
+      });
     });
 
     closeLightbox.addEventListener("click", () => {
-        lightbox.style.display = "none";
+      lightbox.style.display = "none";
     });
 
     lightbox.addEventListener("click", event => {
-        if (event.target === lightbox) {
+      if (event.target === lightbox) {
         lightbox.style.display = "none";
-        }
+      }
     });
 
     document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
+      if (event.key === "Escape") {
         lightbox.style.display = "none";
-        }
+      }
     });
-    }
+  }
 
-  // FAQ ACCORDION
-  // This opens and closes each FAQ item by adding/removing the .open class.
-  // The aria-expanded value also updates so screen readers know the answer is open or closed.
+  /* 
+  CONTACT PAGE FAQ ACCORDION
+  This section opens and closes FAQ answers when a question is clicked.
+  The accordion keeps the Contact page organized while still giving visitors
+  quick answers before they submit the form.
+  */
   const faqButtons = document.querySelectorAll(".faq-q");
 
   faqButtons.forEach(button => {
     button.addEventListener("click", () => {
       const faqItem = button.closest(".faq-item");
+
+      if (!faqItem) return;
+
       const isOpen = faqItem.classList.contains("open");
 
       faqItem.classList.toggle("open");
@@ -221,87 +267,97 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
-  // CONTACT FORM VALIDATION + SUCCESS CARD
-  // This block validates the contact form before it submits to Formspree.
-  // It also shows the success card if Formspree redirects back with ?success=true.
-
+  /* 
+  CONTACT FORM VALIDATION + SUCCESS CARD
+  This block validates the contact form before it submits to Formspree.
+  It also shows the success card if Formspree redirects back with ?success=true.
+  Inline errors help visitors understand exactly what needs to be fixed.
+  */
   const contactForm = document.getElementById("contactForm");
   const messageField = document.getElementById("message");
   const messageCounter = document.getElementById("messageCounter");
   const formStatus = document.getElementById("formStatus");
   const successCard = document.getElementById("successCard");
-  const urlParams = new URLSearchParams(window.location.search);
 
-  // Checks if the email has a basic valid email format.
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
+  if (contactForm) {
+    /* 
+    FORMSPREE SUCCESS REDIRECT
+    After Formspree receives the form, it sends the visitor back to
+    contact.html?success=true. This code checks the URL for that success message,
+    hides the form, and shows the thank-you card.
+    */
+    const urlParams = new URLSearchParams(window.location.search);
+    const formWasSubmitted = urlParams.get("success") === "true";
 
-  // Shows an inline error message under the correct form field.
-  function showError(fieldId, message) {
-    const errorElement = document.getElementById(`${fieldId}Error`);
-    const field = document.getElementById(fieldId);
-
-    if (errorElement) {
-      errorElement.textContent = message;
+    if (formWasSubmitted && successCard) {
+      contactForm.hidden = true;
+      successCard.hidden = false;
+      successCard.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
-    if (field) {
-      field.classList.add("input-error");
-      field.setAttribute("aria-invalid", "true");
+    // Checks if the email has a basic valid email format before Formspree receives it.
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
-  }
 
-  // Clears old error messages before checking the form again.
-  function clearErrors() {
-    const fields = ["name", "email", "subject", "message"];
-
-    fields.forEach(fieldId => {
+    // Shows an inline error message under the correct form field.
+    function showError(fieldId, message) {
       const errorElement = document.getElementById(`${fieldId}Error`);
       const field = document.getElementById(fieldId);
 
       if (errorElement) {
-        errorElement.textContent = "";
+        errorElement.textContent = message;
       }
 
       if (field) {
-        field.classList.remove("input-error");
-        field.setAttribute("aria-invalid", "false");
+        field.classList.add("input-error");
+        field.setAttribute("aria-invalid", "true");
       }
-    });
-
-    if (formStatus) {
-      formStatus.textContent = "";
-    }
-  }
-
-  // Shows the success card after Formspree redirects back to contact.html?success=true.
-  if (urlParams.get("success") === "true") {
-    if (contactForm) {
-      contactForm.hidden = true;
     }
 
-    if (successCard) {
-      successCard.hidden = false;
+    // Clears old error messages before checking the form again.
+    function clearErrors() {
+      const fields = ["name", "email", "subject", "message"];
+
+      fields.forEach(fieldId => {
+        const errorElement = document.getElementById(`${fieldId}Error`);
+        const field = document.getElementById(fieldId);
+
+        if (errorElement) {
+          errorElement.textContent = "";
+        }
+
+        if (field) {
+          field.classList.remove("input-error");
+          field.setAttribute("aria-invalid", "false");
+        }
+      });
+
+      if (formStatus) {
+        formStatus.textContent = "";
+      }
     }
-  }
 
-  // Live character counter for the message textarea.
-  //This section updates the message count as the user types.
-  //It helps visitors know when their message is long enough to submit and supports the minimum message length requirement.
-  if (messageField && messageCounter) {
-    messageField.addEventListener("input", () => {
-      const count = messageField.value.trim().length;
-      messageCounter.textContent = `${count} / 20 minimum characters`;
-    });
-  }
+    /* 
+    MESSAGE CHARACTER COUNTER
+    This section updates the message count as the user types.
+    It helps visitors know when their message is long enough to submit and
+    supports the minimum message length requirement.
+    */
+    if (messageField && messageCounter) {
+      messageField.addEventListener("input", () => {
+        const count = messageField.value.trim().length;
+        messageCounter.textContent = `${count} / 20 minimum characters`;
+      });
+    }
 
-  // Validates the form before sending it to Formspree.
-  //This section checks the form before sending it to Formspree.
-  //It verifies that required fields are filled in, the email format is valid, and the message has enough detail. Inline errors are shown beside each field so users
-  //know exactly what to fix without relying on browser alerts.
-  if (contactForm) {
+    /* 
+    CONTACT FORM SUBMIT VALIDATION
+    This section checks the form before sending it to Formspree.
+    It verifies that required fields are filled in, the email format is valid,
+    and the message has enough detail. Formspree is only blocked when the form
+    has errors.
+    */
     contactForm.addEventListener("submit", event => {
       clearErrors();
 
@@ -312,12 +368,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let isValid = true;
 
-      if (!name.value.trim()) {
+      if (!name || !name.value.trim()) {
         showError("name", "Please enter your name.");
         isValid = false;
       }
 
-      if (!email.value.trim()) {
+      if (!email || !email.value.trim()) {
         showError("email", "Please enter your email address.");
         isValid = false;
       } else if (!isValidEmail(email.value.trim())) {
@@ -325,12 +381,12 @@ document.addEventListener("DOMContentLoaded", () => {
         isValid = false;
       }
 
-      if (!subject.value) {
+      if (!subject || !subject.value) {
         showError("subject", "Please choose a subject.");
         isValid = false;
       }
 
-      if (!message.value.trim()) {
+      if (!message || !message.value.trim()) {
         showError("message", "Please enter a message.");
         isValid = false;
       } else if (message.value.trim().length < 20) {
