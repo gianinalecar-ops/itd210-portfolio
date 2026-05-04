@@ -98,7 +98,7 @@ This milestone adds a responsive and accessible contact page for Breaking Cycles
 ## Accessibility
 - Visible labels
 - Required fields
-- `aria-live` form status
+- aria-live form status
 - Keyboard-accessible buttons and form controls
 - Visible focus styles
 - Reduced-motion media query
