@@ -1663,6 +1663,22 @@ video, audio {
   }
 }
 
+/* ACCESSIBLE FOCUS STATES
+These styles make keyboard focus visible when users tab through links,
+buttons, form fields, gallery filters, media tabs, and resource cards.
+*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.gallery-item:focus-visible,
+.resource-card:focus-visible,
+.media-tab:focus-visible {
+  outline: 3px solid var(--primary-red);
+  outline-offset: 4px;
+}
+
 /* -------   Footer   ------- */
 footer {
   background: var(--primary-red);

@@ -77,7 +77,7 @@
             <h2>Frequent Questions</h2>
 
             <div class="faq-item">
-                <button class="faq-q" aria-expanded="false">
+                <button class="faq-q" aria-expanded="false" aria-controls="faqVolunteer">
                 How can I volunteer?
                 </button>
                 <div class="faq-a">
@@ -86,7 +86,7 @@
             </div>
 
             <div class="faq-item">
-                <button class="faq-q" aria-expanded="false">
+                <button class="faq-q" aria-expanded="false" aria-controls="faqDonate">
                 How can I donate?
                 </button>
                 <div class="faq-a">
@@ -95,7 +95,7 @@
             </div>
 
             <div class="faq-item">
-                <button class="faq-q" aria-expanded="false">
+                <button class="faq-q" aria-expanded="false" aria-controls="faqResponse">
                 How fast do you respond?
                 </button>
                 <div class="faq-a">
@@ -147,7 +147,7 @@
                 </form>
 
                 <!-- SUCCESS CARD: Appears after a successful Formspree submission. -->
-                <div id="successCard" class="success-card" hidden>
+                <div id="successCard" class="success-card" hidden aria-live="polite" tabindex="-1">
                     <i class="fa-solid fa-circle-check"></i>
                     <h3>Message Sent Successfully!</h3>
                     <p>

@@ -170,8 +170,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const resourceCards = document.querySelectorAll(".resource-card");
 
   resourceCards.forEach(card => {
-    card.addEventListener("click", () => {
-      card.classList.toggle("active");
+    function toggleResourceCard() {
+      const isOpen = card.classList.toggle("active");
+      card.setAttribute("aria-expanded", String(isOpen));
+    }
+
+    card.addEventListener("click", toggleResourceCard);
+
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleResourceCard();
+      }
     });
   });
 
