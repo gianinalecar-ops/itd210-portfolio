@@ -295,70 +295,71 @@ document.addEventListener("DOMContentLoaded", () => {
       successCard.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
-    // Checks if the email has a basic valid email format before Formspree receives it.
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    // Shows an inline error message under the correct form field.
-    function showError(fieldId, message) {
-      const errorElement = document.getElementById(`${fieldId}Error`);
-      const field = document.getElementById(fieldId);
-
-      if (errorElement) {
-        errorElement.textContent = message;
+      // Checks if the email has a basic valid email format before Formspree receives it.
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       }
 
-      if (field) {
-        field.classList.add("input-error");
-        field.setAttribute("aria-invalid", "true");
-      }
-    }
-
-    // Clears old error messages before checking the form again.
-    function clearErrors() {
-      const fields = ["name", "email", "subject", "message"];
-
-      fields.forEach(fieldId => {
+      // Shows an inline error message under the correct form field.
+      function showError(fieldId, message) {
         const errorElement = document.getElementById(`${fieldId}Error`);
         const field = document.getElementById(fieldId);
 
         if (errorElement) {
-          errorElement.textContent = "";
+          errorElement.textContent = message;
         }
 
         if (field) {
-          field.classList.remove("input-error");
-          field.setAttribute("aria-invalid", "false");
+          field.classList.add("input-error");
+          field.setAttribute("aria-invalid", "true");
         }
-      });
-
-      if (formStatus) {
-        formStatus.textContent = "";
       }
-    }
 
-    /* 
-    MESSAGE CHARACTER COUNTER
-    This section updates the message count as the user types.
-    It helps visitors know when their message is long enough to submit and
-    supports the minimum message length requirement.
-    */
-    if (messageField && messageCounter) {
-      messageField.addEventListener("input", () => {
-        const count = messageField.value.trim().length;
-        messageCounter.textContent = `${count} / 20 minimum characters`;
-      });
-    }
+      // Clears old error messages before checking the form again.
+      function clearErrors() {
+        const fields = ["name", "email", "subject", "message"];
 
-    /* 
-    CONTACT FORM SUBMIT VALIDATION
-    This section checks the form before sending it to Formspree.
-    It verifies that required fields are filled in, the email format is valid,
-    and the message has enough detail. Formspree is only blocked when the form
-    has errors.
-    */
-    contactForm.addEventListener("submit", event => {
+        fields.forEach(fieldId => {
+          const errorElement = document.getElementById(`${fieldId}Error`);
+          const field = document.getElementById(fieldId);
+
+          if (errorElement) {
+            errorElement.textContent = "";
+          }
+
+          if (field) {
+            field.classList.remove("input-error");
+            field.setAttribute("aria-invalid", "false");
+          }
+        });
+
+        if (formStatus) {
+          formStatus.textContent = "";
+        }
+      }
+
+      /* 
+      MESSAGE CHARACTER COUNTER
+      This section updates the message count as the user types.
+      It helps visitors know when their message is long enough to submit and
+      supports the minimum message length requirement.
+      */
+      if (messageField && messageCounter) {
+        messageField.addEventListener("input", () => {
+          const count = messageField.value.trim().length;
+          messageCounter.textContent = `${count} / 20 minimum characters`;
+        });
+      }
+
+      /* 
+      CONTACT FORM SUBMIT VALIDATION
+      This section checks the form before sending it to Formspree.
+      It verifies that required fields are filled in, the email format is valid,
+      and the message has enough detail. Formspree is only blocked when the form
+      has errors.
+      */
+      contactForm.addEventListener("submit", async event => {
+      event.preventDefault();
       clearErrors();
 
       const name = document.getElementById("name");
@@ -394,12 +395,54 @@ document.addEventListener("DOMContentLoaded", () => {
         isValid = false;
       }
 
-      // Stop Formspree only if the form is invalid.
       if (!isValid) {
-        event.preventDefault();
-
         if (formStatus) {
           formStatus.textContent = "Please fix the errors above before sending.";
+        }
+
+        return;
+      }
+
+      try {
+        if (formStatus) {
+          formStatus.textContent = "Sending your message...";
+        }
+
+        const formData = new FormData(contactForm);
+
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+
+          if (messageCounter) {
+            messageCounter.textContent = "0 / 20 minimum characters";
+          }
+
+          contactForm.hidden = true;
+
+          if (successCard) {
+            successCard.hidden = false;
+            successCard.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+
+          if (formStatus) {
+            formStatus.textContent = "";
+          }
+        } else {
+          if (formStatus) {
+            formStatus.textContent = "Something went wrong. Please try again.";
+          }
+        }
+      } catch (error) {
+        if (formStatus) {
+          formStatus.textContent = "There was a connection problem. Please try again.";
         }
       }
     });
