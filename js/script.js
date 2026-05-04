@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Closes the mobile menu after the user clicks the close button or selects a link.
+    // This keeps the screen from staying covered after navigation.
     function closeMenu() {
       mobileNav.classList.add("translate-x-full");
       mobileNav.classList.remove("translate-x-0");
@@ -267,10 +268,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* 
-  CONTACT FORM VALIDATION + CUSTOM SUCCESS CARD
-  This block validates the contact form before sending it to Formspree.
-  Instead of letting Formspree take the visitor to its default thank-you page,
-  this code sends the form in the background and shows my custom success card.
+  CONTACT FORM VALIDATION + SUCCESS CARD
+  This block validates the contact form before it submits to Formspree.
+  It also shows the success card if Formspree redirects back with ?success=true.
+  Inline errors help visitors understand exactly what needs to be fixed.
   */
   const contactForm = document.getElementById("contactForm");
   const messageField = document.getElementById("message");
@@ -280,10 +281,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (contactForm) {
     /* 
-    FORMSPREE SUCCESS REDIRECT BACKUP
-    If a visitor ever lands on contact.html?success=true, this backup check hides
-    the form and shows the thank-you card. The main success behavior now happens
-    through the AJAX submission below.
+    FORMSPREE SUCCESS REDIRECT
+    After Formspree receives the form, it sends the visitor back to
+    contact.html?success=true. This code checks the URL for that success message,
+    hides the form, and shows the thank-you card.
     */
     const urlParams = new URLSearchParams(window.location.search);
     const formWasSubmitted = urlParams.get("success") === "true";
@@ -351,14 +352,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* 
-    CONTACT FORM SUBMIT VALIDATION + FORMSPREE AJAX SUBMISSION
+    CONTACT FORM SUBMIT VALIDATION
     This section checks the form before sending it to Formspree.
-    If the form is valid, JavaScript sends the form data to Formspree without
-    leaving the page. This allows the custom success card to appear instead of
-    sending users to Formspree's default thank-you screen.
+    It verifies that required fields are filled in, the email format is valid,
+    and the message has enough detail. Formspree is only blocked when the form
+    has errors.
     */
-    contactForm.addEventListener("submit", async event => {
-      event.preventDefault();
+    contactForm.addEventListener("submit", event => {
       clearErrors();
 
       const name = document.getElementById("name");
@@ -394,54 +394,12 @@ document.addEventListener("DOMContentLoaded", () => {
         isValid = false;
       }
 
+      // Stop Formspree only if the form is invalid.
       if (!isValid) {
+        event.preventDefault();
+
         if (formStatus) {
           formStatus.textContent = "Please fix the errors above before sending.";
-        }
-
-        return;
-      }
-
-      try {
-        if (formStatus) {
-          formStatus.textContent = "Sending your message...";
-        }
-
-        const formData = new FormData(contactForm);
-
-        const response = await fetch(contactForm.action, {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json"
-          }
-        });
-
-        if (response.ok) {
-          contactForm.reset();
-
-          if (messageCounter) {
-            messageCounter.textContent = "0 / 20 minimum characters";
-          }
-
-          contactForm.hidden = true;
-
-          if (successCard) {
-            successCard.hidden = false;
-            successCard.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-
-          if (formStatus) {
-            formStatus.textContent = "";
-          }
-        } else {
-          if (formStatus) {
-            formStatus.textContent = "Something went wrong. Please try again.";
-          }
-        }
-      } catch (error) {
-        if (formStatus) {
-          formStatus.textContent = "There was a connection problem. Please try again.";
         }
       }
     });
