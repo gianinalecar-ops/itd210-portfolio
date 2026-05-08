@@ -198,6 +198,20 @@ a:hover {
   background: var(--primary-red);
 }
 
+/* GLOBAL KEYBOARD FOCUS */
+/* Gives all keyboard users a visible focus ring across links, buttons, form fields, and media controls. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+video:focus-visible,
+audio:focus-visible {
+  outline: 4px solid rgba(139, 30, 30, 0.45);
+  outline-offset: 4px;
+  border-radius: 0.35rem;
+}
+
 /* -- Hero -- */
 .hero {
     position: relative;
