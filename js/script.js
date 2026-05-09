@@ -106,6 +106,35 @@ document.addEventListener("DOMContentLoaded", () => {
     revealOnScroll();
   }
 
+  // Keyboard support for resource cards
+  document.querySelectorAll(".resource-card").forEach((card) => {
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  // Keyboard support for gallery lightbox
+  document.querySelectorAll(".gallery-item").forEach((item) => {
+    item.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        item.click();
+      }
+    });
+  });
+
+  // Close lightbox with Escape key
+  document.addEventListener("keydown", (event) => {
+    const lightbox = document.getElementById("lightbox");
+
+    if (event.key === "Escape" && lightbox && lightbox.style.display === "flex") {
+      lightbox.style.display = "none";
+    }
+  });
+
   /* 
   TYPEWRITER STORY EFFECT
   This section types out selected text one character at a time.
