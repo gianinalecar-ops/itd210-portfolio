@@ -161,9 +161,12 @@ a:hover {
 
 /* Back-to-top button: hidden by default, then revealed after the user scrolls down. */
 .back-to-top {
-  position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
+  position: fixed !important;
+  right: 1.25rem !important;
+  bottom: 1.25rem !important;
+  left: auto !important;
+  top: auto !important;
+
   width: 48px;
   height: 48px;
   border: none;
@@ -172,30 +175,32 @@ a:hover {
   color: var(--white);
   font-size: 1.1rem;
   cursor: pointer;
+
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   z-index: 2000;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Active state: JavaScript adds this class when the user scrolls down. */
 .back-to-top.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* Keyboard focus: creates a clear visible focus indicator for accessibility. */
-.back-to-top:focus {
-  outline: 4px solid rgba(139, 30, 30, 0.35);
-  outline-offset: 4px;
-}
-
-/* Hover state: gives mouse users visual feedback. */
 .back-to-top:hover {
   background: var(--primary-red);
+}
+
+.back-to-top:focus-visible {
+  outline: 4px solid rgba(139, 30, 30, 0.45);
+  outline-offset: 4px;
 }
 
 /* GLOBAL KEYBOARD FOCUS */
