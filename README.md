@@ -150,13 +150,13 @@ Live URL: [gianinalecar-ops.github.io/itd210-portfolio/](https://gianinalecar-op
 ## Final Reflection
 
 ### What is the strongest part of your final site and why?
-The strongest part of my final site is the way the design, imagery, and interactive features work together to tell the story of Breaking Cycles International. The site feels purposeful because each page supports the mission through visuals, movement, and clear calls to action.
+The strongest part of my final site is the clean design, imagery, clear calls to action, and interactive features that work together to tell the story of Breaking Cycles International.
 
 ### What did you learn about responsive design and interactivity this semester?
-I learned that responsive design is more than making a page shrink on smaller screens. It requires planning layout, spacing, typography, images, and navigation so the site remains usable across mobile, tablet, and desktop. I also learned that interactivity should support the user experience, not distract from it.
+I learned that responsive design isn't just making your desktop website shrink for the phone. It requires planning your layout, spacing, typography, images, and navigation so the site remains usable across mobile, tablet, and desktop. I also learned that interactivity should support the user experience, not distract from it.
 
 ### Which piece of feedback changed your approach the most?
-The feedback that changed my approach 
+The feedback that changed my approach the most was to not only make my website more visual, but to focus on conveying my text and the purpose of my website more visually as well.
 
 ### If you had another month, what would you add or refine next?
 If I had another month, I would try to refine the branding even more to make it feel more lived in, add stronger original photography or video content, improve page transitions, and try to add more content or maybe a section with upcoming events.
