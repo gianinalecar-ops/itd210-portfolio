@@ -103,5 +103,75 @@ This milestone adds a responsive and accessible contact page for Breaking Cycles
 - Visible focus styles
 - Reduced-motion media query
 
+# Breaking Cycles International Final Website
+
+Breaking Cycles International is a responsive nonprofit-style website created for my ITD 210 Web Design project. The site highlights the organization’s mission, services, resources, gallery, media content, and contact options. The purpose of the website is to communicate hope, build trust, and encourage community involvement through a clean, accessible, and responsive design.
+
+## Live Website
+
+Live URL: [gianinalecar-ops.github.io/itd210-portfolio/](https://gianinalecar-ops.github.io/itd210-portfolio/)
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- CSS Grid
+- Flexbox
+- Tailwind CSS on the Services page
+- Font Awesome icons
+- Google Fonts
+- Formspree for contact form submission
+- GitHub Pages for deployment
+
+## Features
+
+- Responsive multi-page website
+- Mobile navigation menu
+- Back-to-top button
+- Homepage hero video
+- Mission highlight cards
+- About page leadership cards
+- Services page with responsive service sections
+- Resources page with expandable resource cards
+- Gallery page with category filters and lightbox preview
+- Media page with video, audio, and transcript tabs
+- Contact page with Formspree integration
+- JavaScript form validation
+- FAQ accordion
+- Message character counter
+- Success confirmation card
+- Scroll reveal animations
+- Typewriter text effect
+- Reduced-motion support
+- Visible keyboard focus styles
+- Keyboard-accessible navigation and interactive elements
+
+## Final Reflection
+
+### What is the strongest part of your final site and why?
+The strongest part of my final site is the way the design, imagery, and interactive features work together to tell the story of Breaking Cycles International. The site feels purposeful because each page supports the mission through visuals, movement, and clear calls to action.
+
+### What did you learn about responsive design and interactivity this semester?
+I learned that responsive design is more than making a page shrink on smaller screens. It requires planning layout, spacing, typography, images, and navigation so the site remains usable across mobile, tablet, and desktop. I also learned that interactivity should support the user experience, not distract from it.
+
+### Which piece of feedback changed your approach the most?
+The feedback that changed my approach 
+
+### If you had another month, what would you add or refine next?
+If I had another month, I would try to refine the branding even more to make it feel more lived in, add stronger original photography or video content, improve page transitions, and try to add more content or maybe a section with upcoming events.
+
+
+## Credits
+
+- Font Awesome: Icons used throughout the website
+- Google Fonts: Inter and Montserrat font families
+- Formspree: Contact form handling
+- Tailwind CSS: Utility styling used on the Services page
+- Canva: Design inspiration for selected page layout ideas
+- ChatGPT: Assistance with code troubleshooting, layout planning, accessibility improvements, and written content refinement
+- ChatGPT Image Generation / AI-generated assets: Selected nonprofit-style images and visual assets used for educational purposes
+- Artlist.io: AI-assisted hero video asset used for educational purposes
+
 ### Author
 Gianina Lecar
