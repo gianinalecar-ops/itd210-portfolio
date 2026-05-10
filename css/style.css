@@ -1278,6 +1278,17 @@ On mobile they stack vertically, but horizontally on larger screen.
   font-size: 3rem;
   cursor: pointer;
   z-index: 1001;
+  background: transparent;
+  border: none;
+}
+
+.close:hover,
+.close:focus-visible {
+  color: #f5d7d7;
+  background: transparent;
+  outline: 3px solid white;
+  outline-offset: 6px;
+  border-radius: 0.25rem;
 }
 
 /* -----------        Media Page        ----------- */

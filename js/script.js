@@ -6,40 +6,55 @@ document.addEventListener("DOMContentLoaded", () => {
   page Tailwind menu by handling the "open" class and the translate classes.
   This keeps navigation working consistently across all pages.
   */
-  const toggleBtn = document.getElementById("mobileToggle");
+
+  // MOBILE MENU
+  // Works for both the regular site pages and the Tailwind-based Services page.
+  const mobileToggle = document.getElementById("mobileToggle");
   const mobileNav = document.getElementById("mobileNav");
-  const closeBtn = document.getElementById("closeMenu");
+  const closeMenu = document.getElementById("closeMenu");
 
-  if (toggleBtn && mobileNav && closeBtn) {
-    const mobileLinks = mobileNav.querySelectorAll("a");
+  if (mobileToggle && mobileNav && closeMenu) {
+    const navLinks = mobileNav.querySelectorAll("a");
 
-    // Opens the mobile menu so phone and tablet users can access all page links.
-    function openMenu() {
+    function openMobileMenu() {
+      // Regular pages
+      mobileNav.classList.add("open");
+
+      // Services page Tailwind menu
       mobileNav.classList.remove("translate-x-full");
       mobileNav.classList.add("translate-x-0");
-      mobileNav.classList.add("open");
+
+      mobileToggle.setAttribute("aria-expanded", "true");
+      mobileNav.setAttribute("aria-hidden", "false");
+
+      closeMenu.focus();
     }
 
-    // Closes the mobile menu after the user clicks the close button or selects a link.
-    // This keeps the screen from staying covered after navigation.
-    function closeMenu() {
+    function closeMobileMenu() {
+      // Regular pages
+      mobileNav.classList.remove("open");
+
+      // Services page Tailwind menu
       mobileNav.classList.add("translate-x-full");
       mobileNav.classList.remove("translate-x-0");
-      mobileNav.classList.remove("open");
+
+      mobileToggle.setAttribute("aria-expanded", "false");
+      mobileNav.setAttribute("aria-hidden", "true");
+
+      mobileToggle.focus();
     }
 
-    toggleBtn.addEventListener("click", () => {
-      if (mobileNav.classList.contains("translate-x-full")) {
-        openMenu();
-      } else {
-        closeMenu();
-      }
+    mobileToggle.addEventListener("click", openMobileMenu);
+    closeMenu.addEventListener("click", closeMobileMenu);
+
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", closeMobileMenu);
     });
 
-    closeBtn.addEventListener("click", closeMenu);
-
-    mobileLinks.forEach(link => {
-      link.addEventListener("click", closeMenu);
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && mobileToggle.getAttribute("aria-expanded") === "true") {
+        closeMobileMenu();
+      }
     });
   }
 
