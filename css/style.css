@@ -1270,7 +1270,9 @@ On mobile they stack vertically, but horizontally on larger screen.
   border-radius: 12px;
 }
 
-.close {
+/* LIGHTBOX CLOSE BUTTON */
+/* This only styles the close button inside the lightbox, not the mobile menu close button. */
+.lightbox .close {
   position: absolute;
   top: 2rem;
   right: 2rem;
@@ -1280,15 +1282,18 @@ On mobile they stack vertically, but horizontally on larger screen.
   z-index: 1001;
   background: transparent;
   border: none;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  font-family: inherit;
 }
 
-.close:hover,
-.close:focus-visible {
-  color: #f5d7d7;
-  background: transparent;
-  outline: 3px solid white;
+/* Visible keyboard focus for the lightbox close button only */
+.lightbox .close:focus-visible {
+  color: #8d1818;
+  background: rgba(255, 255, 255, 0.12);
+  outline: 4px solid #ffffff;
   outline-offset: 6px;
-  border-radius: 0.25rem;
+  border-radius: 0.35rem;
 }
 
 /* -----------        Media Page        ----------- */

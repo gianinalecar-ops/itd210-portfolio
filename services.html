@@ -22,13 +22,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-      <!-- BACK-TO-TOP BUTTON: Lets users quickly return to the top of the page. -->
-      <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
-      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-      </button>
+    <!-- BACK-TO-TOP BUTTON: Lets users quickly return to the top of the page. -->
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
-     <!-- Header Section -->
-     <header class="bg-blue-900 text-white px-6 py-4 flex justify-between items-center">
+    <!-- Header Section -->
+    <header class="bg-blue-900 text-white px-6 py-4 flex justify-between items-center">
       <a href="index.html" class="flex items-center gap-2 text-lg font-bold text-white no-underline hover:text-white focus:text-white focus:outline-4 focus:outline-yellow-300">
         <i class="fa-solid fa-globe text-2xl" aria-hidden="true"></i>
         <span>Breaking Cycles International</span>
@@ -48,36 +48,35 @@
      </nav>
 
      <!-- Mobile Nav Button -->
-     <button id="mobileNav" class="fixed top-0 right-0 w-64 h-full bg-blue-900 text-white transform translate-x-full transition duration-300 md:hidden z-50" aria-label="Mobile navigation" aria-hidden="true">
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
-     </button>
-     </header>
+      <button id="mobileToggle" class="md:hidden text-2xl text-white focus:outline-4 focus:outline-yellow-300" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </header>
 
      <!-- Mobile Navigation -->
      <!-- This menu is hidden off-screen by default and opens when the hamburger button is clicked.
      The links match the desktop navigation so all pages work together consistently.
      --> 
-      <nav id="mobileNav" class="fixed top-0 right-0 w-64 h-full bg-blue-900 text-white transform translate-x-full transition duration-300 md:hidden">
+    <nav id="mobileNav" class="fixed top-0 right-0 w-64 h-full bg-blue-900 text-white transform translate-x-full transition duration-300 md:hidden z-50" aria-label="Mobile navigation" aria-hidden="true">
 
       <div class="flex justify-end p-4">
-         <button id="closeMenu" class="text-2xl focus:outline-4 focus:outline-yellow-300" aria-label="Close menu">
-            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-         </button>
+        <button id="closeMenu" class="text-2xl focus:outline-4 focus:outline-yellow-300" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
       </div>
 
       <ul class="flex flex-col gap-6 p-6 text-lg">
-         <li><a href="index.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Home</a></li>
-         <li><a href="about.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">About</a></li>
-         <li><a href="services.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Services</a></li>
-         <li><a href="resources.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Resources</a></li>
-         <li><a href="gallery.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Gallery</a></li>
-         <li><a href="media.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Media</a></li>
-         <li><a href="contact.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Contact</a></li>
+        <li><a href="index.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Home</a></li>
+        <li><a href="about.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">About</a></li>
+        <li><a href="services.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Services</a></li>
+        <li><a href="resources.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Resources</a></li>
+        <li><a href="gallery.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Gallery</a></li>
+        <li><a href="media.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Media</a></li>
+        <li><a href="contact.html" class="hover:text-red-600 focus:text-red-600 focus:outline-4 focus:outline-yellow-300">Contact</a></li>
       </ul>
+    </nav>
 
-      </nav>
-
-     <main>
+    <main>
 
       <!-- Hero Section -->
        <section class="text-center py-12 bg-gray-100">

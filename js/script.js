@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   This keeps navigation working consistently across all pages.
   */
 
-  // MOBILE MENU
+  // MOBILE MENU    
   // Works for both the regular site pages and the Tailwind-based Services page.
   const mobileToggle = document.getElementById("mobileToggle");
   const mobileNav = document.getElementById("mobileNav");
